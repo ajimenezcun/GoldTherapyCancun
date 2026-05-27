@@ -1,0 +1,148 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/ui/Header.astro";
+import Footer from "../components/ui/Footer.astro";
+
+const whatsappUrl = "https://wa.me/525500000000";
+---
+
+<BaseLayout
+    title="Accesibilidad | Gold Therapy"
+    description="Compromiso de accesibilidad digital de Gold Therapy para usuarios en Cancún, México."
+>
+    <Header />
+
+    <main>
+        <section class="relative overflow-hidden py-24 text-white">
+            <img
+                src="/hero-section.jpg"
+                alt="Accesibilidad del sitio"
+                class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-secondary/75"></div>
+
+            <div class="relative z-10 mx-auto max-w-7xl px-6">
+                <div
+                    class="mb-5 flex flex-wrap items-center gap-2 text-sm font-semibold text-white/90"
+                >
+                    <a href="/" class="transition-colors hover:text-primary"
+                        >Inicio</a
+                    >
+                    <span aria-hidden="true">/</span>
+                    <span class="text-primary">Accesibilidad</span>
+                </div>
+
+                <h1 class="max-w-4xl text-white!">Accesibilidad</h1>
+                <p
+                    class="mt-5 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl"
+                >
+                    En Gold Therapy buscamos que nuestro sitio sea usable para
+                    todas las personas, incluyendo usuarios con necesidades de
+                    accesibilidad digital.
+                </p>
+            </div>
+        </section>
+
+        <section class="bg-white py-20">
+            <div
+                class="mx-auto max-w-4xl space-y-10 px-6 text-on-surface-variant"
+            >
+                <article class="rounded-xl bg-surface-container-low p-8">
+                    <h2 class="mb-4 text-3xl!">Nuestro compromiso</h2>
+                    <p class="text-lg leading-relaxed">
+                        Trabajamos continuamente para mejorar la experiencia de
+                        navegación y facilitar el acceso al contenido, servicios
+                        y canales de contacto de Gold Therapy.
+                    </p>
+                </article>
+
+                <article>
+                    <h2 class="mb-4 text-3xl!">Medidas implementadas</h2>
+                    <ul class="space-y-3 text-lg leading-relaxed">
+                        <li>
+                            Estructura semántica de contenido para facilitar
+                            lectura y navegación.
+                        </li>
+                        <li>Jerarquía clara de encabezados y secciones.</li>
+                        <li>
+                            Contraste visual adecuado en elementos principales
+                            de la interfaz.
+                        </li>
+                        <li>Texto alternativo en imágenes relevantes.</li>
+                        <li>
+                            Navegación compatible con teclado en elementos
+                            interactivos esenciales.
+                        </li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h2 class="mb-4 text-3xl!">Mejoras continuas</h2>
+                    <p class="text-lg leading-relaxed">
+                        Reconocemos que la accesibilidad es un proceso
+                        constante. Revisamos y ajustamos periódicamente el sitio
+                        para corregir barreras y optimizar la experiencia de
+                        uso.
+                    </p>
+                </article>
+
+                <article>
+                    <h2 class="mb-4 text-3xl!">
+                        ¿Encontraste una barrera de acceso?
+                    </h2>
+                    <p class="text-lg leading-relaxed">
+                        Si detectas dificultades para navegar o utilizar alguna
+                        parte del sitio, agradecemos que nos lo informes. Tu
+                        retroalimentación nos ayuda a mejorar.
+                    </p>
+                </article>
+
+                <article>
+                    <h2 class="mb-4 text-3xl!">Contacto para accesibilidad</h2>
+                    <p class="text-lg leading-relaxed">
+                        Puedes comunicarte con nosotros desde Cancún, Quintana
+                        Roo, México, a través de WhatsApp o teléfono para
+                        reportar incidencias de accesibilidad.
+                    </p>
+                    <p
+                        class="mt-4 text-sm font-semibold uppercase tracking-wide text-primary-container"
+                    >
+                        Última actualización: 26 de mayo de 2026
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="bg-surface py-16">
+            <div class="mx-auto grid max-w-5xl gap-6 px-6 md:grid-cols-2">
+                <article class="rounded-xl bg-white p-7 shadow-sm">
+                    <h3 class="mb-3 text-2xl!">Teléfono de atención</h3>
+                    <a
+                        href="tel:+525500000000"
+                        class="font-semibold text-secondary hover:underline"
+                    >
+                        +52 998 270 1550
+                    </a>
+                </article>
+
+                <article
+                    class="rounded-xl bg-secondary p-7 text-white shadow-sm"
+                >
+                    <h3 class="mb-4 text-2xl! text-white!">
+                        Soporte por WhatsApp
+                    </h3>
+                    <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex rounded-lg bg-[#25d366] px-6 py-3 font-bold text-white transition-colors hover:bg-[#1ebe57]"
+                    >
+                        Reportar por WhatsApp
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>

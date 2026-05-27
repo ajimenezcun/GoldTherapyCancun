@@ -1,0 +1,457 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/ui/Header.astro";
+import Footer from "../components/ui/Footer.astro";
+
+const whatsappUrl = "https://wa.me/525500000000";
+
+const studies = [
+    {
+        title: "Licenciatura en Fisioterapia",
+        institution: "Universidad de Ciencias de la Salud",
+        year: "2016",
+        description:
+            "Formación clínica integral en evaluación funcional, terapia manual y rehabilitación musculoesquelética.",
+    },
+    {
+        title: "Certificación en Rehabilitación Postoperatoria",
+        institution: "Colegio Mexicano de Fisioterapia",
+        year: "2019",
+        description:
+            "Protocolos de recuperación segura para pacientes ortopédicos y funcionales en fases tempranas y avanzadas.",
+    },
+    {
+        title: "Diplomado en Fisioterapia Deportiva",
+        institution: "Instituto de Ciencias del Deporte",
+        year: "2021",
+        description:
+            "Prevención de lesiones, readaptación al entrenamiento y estrategias de retorno progresivo al deporte.",
+    },
+    {
+        title: "Actualización en Neurorehabilitación",
+        institution: "Asociación Latinoamericana de Rehabilitación",
+        year: "2024",
+        description:
+            "Intervenciones terapéuticas para mejorar equilibrio, coordinación y autonomía en pacientes neurológicos.",
+    },
+];
+
+const activeClients = [
+    {
+        caseId: "Caso 01",
+        focus: "Rehabilitación postoperatoria de rodilla",
+        stage: "Semana 4 de tratamiento",
+        progress: "Mejora en rango de movimiento y control del dolor.",
+    },
+    {
+        caseId: "Caso 02",
+        focus: "Dolor lumbar crónico",
+        stage: "Semana 6 de tratamiento",
+        progress: "Mayor tolerancia al movimiento y mejor postura funcional.",
+    },
+    {
+        caseId: "Caso 03",
+        focus: "Readaptación deportiva",
+        stage: "Semana 3 de tratamiento",
+        progress: "Recuperación progresiva de fuerza y estabilidad.",
+    },
+    {
+        caseId: "Caso 04",
+        focus: "Rehabilitación neurológica",
+        stage: "Semana 8 de tratamiento",
+        progress: "Avances en equilibrio, coordinación y marcha asistida.",
+    },
+    {
+        caseId: "Caso 05",
+        focus: "Dolor de hombro por sobrecarga",
+        stage: "Semana 2 de tratamiento",
+        progress: "Disminución de dolor nocturno y mejor movilidad activa.",
+    },
+];
+---
+
+<BaseLayout
+    title="Sobre Mí | Gold Therapy Cancún"
+    description="Conoce a la terapeuta de Gold Therapy, su formación, certificaciones y enfoque de atención en Cancún."
+>
+    <Header />
+
+    <main>
+        <section class="relative overflow-hidden py-24 text-white">
+            <img
+                src="/hero-section.jpg"
+                alt="Terapeuta de Gold Therapy en Cancún"
+                class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-secondary/75"></div>
+
+            <div class="relative z-10 mx-auto max-w-7xl px-6">
+                <div
+                    class="mb-5 flex flex-wrap items-center gap-2 text-sm font-semibold text-white/90"
+                >
+                    <a href="/" class="transition-colors hover:text-primary"
+                        >Inicio</a
+                    >
+                    <span aria-hidden="true">/</span>
+                    <span class="text-primary">Sobre mí</span>
+                </div>
+
+                <h1 class="max-w-4xl text-white!">Sobre mí</h1>
+                <p
+                    class="mt-5 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl"
+                >
+                    Soy la terapeuta detrás de Gold Therapy. Mi propósito es
+                    ayudarte a recuperar movilidad, reducir dolor y mejorar tu
+                    calidad de vida con atención personalizada en Cancún.
+                </p>
+            </div>
+        </section>
+
+        <section class="bg-white py-20">
+            <div
+                class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center"
+            >
+                <div
+                    class="overflow-hidden rounded-2xl bg-surface-container-low"
+                >
+                    <img
+                        src="/about-doctor.jpg"
+                        alt="Mariana, terapeuta de Gold Therapy"
+                        class="h-full w-full object-cover"
+                    />
+                </div>
+
+                <article>
+                    <h2 class="mb-4">¿Quién soy?</h2>
+                    <h3
+                        class="mb-5 text-xl! uppercase tracking-wide text-primary-container!"
+                    >
+                        Mariana · Terapeuta física
+                    </h3>
+                    <p
+                        class="mb-5 text-lg leading-relaxed text-on-surface-variant"
+                    >
+                        Trabajo de manera individual con cada paciente para
+                        diseñar procesos de recuperación realistas y medibles.
+                        Mi enfoque combina precisión clínica, empatía y
+                        seguimiento continuo para que cada sesión tenga un
+                        objetivo claro.
+                    </p>
+                    <p class="text-lg leading-relaxed text-on-surface-variant">
+                        Actualmente, Gold Therapy opera con un solo terapeuta
+                        para mantener un estándar alto de calidad, cercanía y
+                        consistencia en cada tratamiento a domicilio.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="bg-surface py-20">
+            <div class="mx-auto max-w-7xl px-6">
+                <div class="mb-10 max-w-3xl">
+                    <h2>Estudios y certificaciones</h2>
+                    <p class="mt-4 text-lg text-on-surface-variant">
+                        Formación académica y educación continua orientada a
+                        ofrecer atención basada en evidencia y resultados
+                        funcionales.
+                    </p>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2">
+                    {
+                        studies.map((study) => (
+                            <article class="rounded-xl bg-white p-7 shadow-sm">
+                                <p class="mb-2 text-sm font-bold uppercase tracking-wide text-primary-container">
+                                    {study.year}
+                                </p>
+                                <h3 class="mb-3 text-xl!">{study.title}</h3>
+                                <p class="mb-3 font-semibold text-secondary">
+                                    {study.institution}
+                                </p>
+                                <p class="text-on-surface-variant">
+                                    {study.description}
+                                </p>
+                            </article>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white py-20" data-about-carousel-section>
+            <div class="mx-auto max-w-7xl px-6">
+                <div
+                    class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+                >
+                    <div class="max-w-3xl">
+                        <h2>Clientes en atención</h2>
+                        <p class="mt-3 text-lg text-on-surface-variant">
+                            Casos activos anonimizados para mostrar el tipo de
+                            acompañamiento y avance terapéutico que trabajamos
+                            en consulta.
+                        </p>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <button
+                            type="button"
+                            aria-label="Caso anterior"
+                            data-about-carousel-prev
+                            class="flex h-11 w-11 items-center justify-center rounded-full border border-outline-variant bg-white transition-colors hover:bg-surface-container-low"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    fill="none"
+                                    stroke="#1E5FAB"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="m15 18l-6-6l6-6"></path></svg
+                            >
+                        </button>
+                        <button
+                            type="button"
+                            aria-label="Caso siguiente"
+                            data-about-carousel-next
+                            class="flex h-11 w-11 items-center justify-center rounded-full border border-outline-variant bg-white transition-colors hover:bg-surface-container-low"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    fill="none"
+                                    stroke="#1E5FAB"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="m9 18l6-6l-6-6"></path></svg
+                            >
+                        </button>
+                    </div>
+                </div>
+
+                <div class="overflow-hidden" data-about-carousel-viewport>
+                    <div
+                        class="flex transition-transform duration-500 ease-in-out"
+                        data-about-carousel-track
+                    >
+                        {
+                            activeClients.map((client) => (
+                                <article
+                                    class="shrink-0 px-3"
+                                    data-about-carousel-item
+                                >
+                                    <div class="h-full rounded-xl bg-surface-container-low p-6">
+                                        <p class="mb-2 text-sm font-bold uppercase tracking-wide text-primary-container">
+                                            {client.caseId}
+                                        </p>
+                                        <h3 class="mb-4 text-xl!">
+                                            {client.focus}
+                                        </h3>
+                                        <p class="mb-3 text-sm font-semibold text-secondary">
+                                            {client.stage}
+                                        </p>
+                                        <p class="text-on-surface-variant">
+                                            {client.progress}
+                                        </p>
+                                    </div>
+                                </article>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-surface py-20">
+            <div class="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-3">
+                <article
+                    class="rounded-xl bg-white p-7 shadow-sm lg:col-span-2"
+                >
+                    <h2 class="mb-4">Datos de contacto</h2>
+                    <p class="mb-6 text-lg text-on-surface-variant">
+                        Si deseas valoración o más información, puedes
+                        contactarme por cualquiera de estos medios. Atención a
+                        domicilio en Cancún, Quintana Roo, México.
+                    </p>
+
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-lg bg-surface-container-low p-5">
+                            <p
+                                class="text-sm font-bold uppercase tracking-wide text-primary-container"
+                            >
+                                Teléfono
+                            </p>
+                            <a
+                                href="tel:+525500000000"
+                                class="mt-2 inline-block font-semibold text-secondary hover:underline"
+                            >
+                                +52 998 270 1550
+                            </a>
+                        </div>
+
+                        <div class="rounded-lg bg-surface-container-low p-5">
+                            <p
+                                class="text-sm font-bold uppercase tracking-wide text-primary-container"
+                            >
+                                WhatsApp
+                            </p>
+                            <a
+                                href={whatsappUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="mt-2 inline-block font-semibold text-secondary hover:underline"
+                            >
+                                Iniciar chat directo
+                            </a>
+                        </div>
+
+                        <div
+                            class="rounded-lg bg-surface-container-low p-5 sm:col-span-2"
+                        >
+                            <p
+                                class="text-sm font-bold uppercase tracking-wide text-primary-container"
+                            >
+                                Zona de atención
+                            </p>
+                            <p class="mt-2 font-semibold text-secondary">
+                                Cancún, Quintana Roo, México
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="rounded-xl bg-secondary p-7 text-white shadow-sm"
+                >
+                    <h3 class="mb-4 text-2xl! text-white!">
+                        Agenda por WhatsApp
+                    </h3>
+                    <p class="mb-6 text-white/90">
+                        Cuéntame tu caso y te responderé con la mejor opción de
+                        tratamiento según tu objetivo de recuperación.
+                    </p>
+                    <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex rounded-lg bg-[#25d366] px-6 py-3 font-bold text-white transition-colors hover:bg-[#1ebe57]"
+                    >
+                        Escribir por WhatsApp
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>
+
+<script>
+    function initAboutClientsCarousel() {
+        const section = document.querySelector("[data-about-carousel-section]");
+        if (!section) return;
+
+        const track = section.querySelector<HTMLElement>(
+            "[data-about-carousel-track]",
+        );
+        const items = Array.from(
+            section.querySelectorAll<HTMLElement>("[data-about-carousel-item]"),
+        );
+        const prevButton = section.querySelector<HTMLButtonElement>(
+            "[data-about-carousel-prev]",
+        );
+        const nextButton = section.querySelector<HTMLButtonElement>(
+            "[data-about-carousel-next]",
+        );
+
+        if (!track || !items.length || !prevButton || !nextButton) return;
+
+        const carouselTrack = track;
+        const carouselPrevButton = prevButton;
+        const carouselNextButton = nextButton;
+
+        let index = 0;
+        let timer: ReturnType<typeof setInterval> | null = null;
+        const autoplayDelay = 4500;
+
+        function getVisibleCards() {
+            if (window.innerWidth >= 1024) return 3;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        }
+
+        function render() {
+            const visibleCards = getVisibleCards();
+            const cardWidth = 100 / visibleCards;
+
+            items.forEach((item) => {
+                item.style.width = `${cardWidth}%`;
+            });
+
+            const maxIndex = Math.max(0, items.length - visibleCards);
+            index = Math.min(index, maxIndex);
+
+            carouselTrack.style.transform = `translateX(-${index * cardWidth}%)`;
+            carouselPrevButton.disabled = index === 0;
+            carouselNextButton.disabled = index >= maxIndex;
+        }
+
+        function goNext() {
+            const maxIndex = Math.max(0, items.length - getVisibleCards());
+            index = index >= maxIndex ? 0 : index + 1;
+            render();
+        }
+
+        function goPrev() {
+            const maxIndex = Math.max(0, items.length - getVisibleCards());
+            index = index <= 0 ? maxIndex : index - 1;
+            render();
+        }
+
+        function startAutoplay() {
+            timer = setInterval(goNext, autoplayDelay);
+        }
+
+        function resetAutoplay() {
+            if (timer) clearInterval(timer);
+            startAutoplay();
+        }
+
+        carouselNextButton.addEventListener("click", () => {
+            goNext();
+            resetAutoplay();
+        });
+
+        carouselPrevButton.addEventListener("click", () => {
+            goPrev();
+            resetAutoplay();
+        });
+
+        section.addEventListener("mouseenter", () => {
+            if (timer) clearInterval(timer);
+        });
+
+        section.addEventListener("mouseleave", () => {
+            startAutoplay();
+        });
+
+        let resizeTimer: ReturnType<typeof setTimeout>;
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(render, 150);
+        });
+
+        render();
+        startAutoplay();
+    }
+
+    document.addEventListener("astro:page-load", initAboutClientsCarousel);
+    initAboutClientsCarousel();
+</script>

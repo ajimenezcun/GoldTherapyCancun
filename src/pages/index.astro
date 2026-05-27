@@ -1,0 +1,600 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/ui/Header.astro";
+import Footer from "../components/ui/Footer.astro";
+import ServicesCarousel from "../components/sections/ServicesCarousel.astro";
+---
+
+<BaseLayout title="Fisioterapia a Domicilio en Cancún | Gold Therapy">
+    <Header />
+
+    <main>
+        <!-- ═══════════════════════════════════════════
+             HERO
+        ═══════════════════════════════════════════ -->
+        <section
+            class="relative min-h-[500px] flex items-center overflow-hidden"
+        >
+            <div class="absolute inset-0 z-0">
+                <img
+                    alt="Sesión de fisioterapia"
+                    class="w-full h-full object-cover"
+                    src="/slide-v1-1.jpg"
+                />
+            </div>
+            <div
+                class="relative z-10 max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center"
+            >
+                <div class="space-y-8">
+                    <h1 class="font-extrabold leading-[1.1] tracking-tight">
+                        Fisioterapia a domicilio en Cancún
+                    </h1>
+                    <p class="text-xl font-medium leading-relaxed">
+                        Alivia el dolor y recupera tu movilidad sin salir de
+                        casa con nuestros tratamientos de fisioterapia,
+                        adaptados a tu proceso de recuperación único.
+                    </p>
+                    <div class="flex flex-wrap gap-7 pt-4">
+                        <a
+                            href="#"
+                            class="bg-primary text-white px-8 py-3 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl"
+                        >
+                            Agenda una Consulta
+                        </a>
+                        <a
+                            href="/servicios"
+                            class="bg-white/65 text-gray-400 px-8 py-3 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-xl"
+                        >
+                            Ver Servicios
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             BIENVENIDA & POR QUÉ ELEGIRNOS
+        ═══════════════════════════════════════════ -->
+        <section class="py-24 bg-surface">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-20 items-start">
+                    <!-- Texto izquierdo -->
+                    <div class="space-y-6">
+                        <h3
+                            class="!text-gray-500 font-bold text-lg tracking-widest uppercase"
+                        >
+                            Bienvenido a Gold Therapy
+                        </h3>
+                        <h2>Alivia tu dolor y recupera movilidad desde casa</h2>
+                        <p
+                            class="text-on-surface-variant text-lg leading-relaxed"
+                        >
+                            En Gold Therapy, combinamos excelencia clínica con
+                            un enfoque personalizado y compasivo. Enfocada en el
+                            bienestar a largo plazo y no solo en el manejo de
+                            síntomas, nuestra misión es ayudarte a recuperar tu
+                            calidad de vida a través de tratamientos de
+                            fisioterapia a domicilio diseñados específicamente
+                            para tus necesidades.
+                        </p>
+                    </div>
+
+                    <!-- Stats bento derecho -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="bg-primary p-8 rounded-xl flex flex-col justify-end min-h-[250px]"
+                        >
+                            <p class="text-5xl font-black mb-2 text-secondary">
+                                98%
+                            </p>
+                            <p class="text-black font-semibold text-lg">
+                                Tasa de éxito en recuperación de dolor crónico
+                            </p>
+                        </div>
+                        <div
+                            class="bg-primary/60 p-8 rounded-xl flex flex-col justify-end min-h-[250px]"
+                        >
+                            <p class="text-5xl font-black text-secondary mb-2">
+                                100+
+                            </p>
+                            <p class="text-on-surface-variant font-semibold">
+                                Pacientes atendidos con resultados comprobados
+                            </p>
+                        </div>
+                        <div
+                            class="bg-primary/30 p-8 rounded-xl col-span-2 flex items-center gap-6"
+                        >
+                            <div
+                                class="h-16 w-16 bg-white/20 rounded-full flex items-center justify-center shrink-0"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="64"
+                                    height="64"
+                                    viewBox="0 0 24 24"
+                                    ><path
+                                        fill="#1E5FAB"
+                                        fill-rule="evenodd"
+                                        d="M13.11 13.5a1.71 1.71 0 0 0-2.22 0a1.7 1.7 0 0 1-.973.403a1.71 1.71 0 0 0-1.569 1.569c-.028.359-.17.7-.403.973a1.71 1.71 0 0 0 0 2.219a1.7 1.7 0 0 1 .403.973a1.71 1.71 0 0 0 1.57 1.57c.358.028.699.169.973.402a1.71 1.71 0 0 0 2.218 0a1.7 1.7 0 0 1 .973-.403a1.71 1.71 0 0 0 1.57-1.569c.028-.358.169-.7.402-.973a1.71 1.71 0 0 0 0-2.219a1.7 1.7 0 0 1-.403-.973a1.71 1.71 0 0 0-1.569-1.569a1.7 1.7 0 0 1-.973-.403m.902 3.603a.75.75 0 1 0-1.024-1.097l-1.63 1.523l-.346-.323a.75.75 0 0 0-1.024 1.097l.857.8a.75.75 0 0 0 1.024 0z"
+                                        clip-rule="evenodd"></path><path
+                                        fill="#1E5FAB"
+                                        d="M2 12V8c0-2.828 0-4.243.879-5.121C3.757 2 5.172 2 8 2h8c2.828 0 4.243 0 5.121.879C22 3.757 22 5.172 22 8v4c0 2.828 0 4.243-.879 5.121c-.835.836-2.156.877-4.717.879a1.71 1.71 0 0 0-.35-1.555a1.7 1.7 0 0 1-.403-.973a1.71 1.71 0 0 0-1.569-1.569a1.7 1.7 0 0 1-.973-.403a1.71 1.71 0 0 0-2.219 0a1.7 1.7 0 0 1-.973.403a1.71 1.71 0 0 0-1.569 1.569c-.028.359-.17.7-.403.973A1.71 1.71 0 0 0 7.595 18c-2.56-.002-3.88-.043-4.716-.879C2 16.243 2 14.828 2 12"
+                                        opacity=".5"></path><path
+                                        fill="#1E5FAB"
+                                        d="M8.25 6A.75.75 0 0 1 9 5.25h6a.75.75 0 0 1 0 1.5H9A.75.75 0 0 1 8.25 6M7 8.75a.75.75 0 0 0 0 1.5h10a.75.75 0 0 0 0-1.5z"
+                                    ></path></svg
+                                >
+                            </div>
+                            <div>
+                                <h4 class="text-white text-2xl font-black">
+                                    Profesional Certificada
+                                </h4>
+                                <p class="text-black font-bold">
+                                    Certificada por estándares en fisioterapia y
+                                    rehabilitación.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             SERVICIOS
+        ═══════════════════════════════════════════ -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto px-6 text-center mb-16">
+                <h2>Servicios de Terapia Física en Cancún</h2>
+                <p class="max-w-2xl mx-auto text-lg">
+                    Tratamientos especializados diseñados para restaurar la
+                    función, mejorar la movilidad y aliviar el dolor.
+                </p>
+            </div>
+            <ServicesCarousel />
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             DESTACADO: QUIROPRAXIA
+        ═══════════════════════════════════════════ -->
+        <section class="py-24 bg-white overflow-hidden">
+            <div
+                class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center"
+            >
+                <!-- Imagen / video -->
+                <div class="relative">
+                    <img
+                        alt="Terapia de quiropraxia"
+                        class="w-full object-cover rounded-lg"
+                        src="/why.jpg"
+                    />
+                </div>
+
+                <!-- Texto -->
+                <div class="space-y-8">
+                    <h2>¿Por qué Fisioterapia a domicilio?</h2>
+                    <p class="text-on-surface-variant text-lg">
+                        En muchas ocasiones, el dolor crónico y las limitaciones
+                        de movilidad pueden hacer que salir de casa para recibir
+                        tratamiento sea un desafío. La fisioterapia a domicilio
+                        ofrece comodidad, atención personalizada y un entorno
+                        familiar que puede acelerar tu recuperación.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    fill="#E4CE83"
+                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10"
+                                    opacity=".5"></path><path
+                                    fill="#E4CE83"
+                                    d="M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0"
+                                ></path></svg
+                            >
+                            <span class="font-bold text-secondary"
+                                >Mejora de postura y movilidad</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    fill="#E4CE83"
+                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10"
+                                    opacity=".5"></path><path
+                                    fill="#E4CE83"
+                                    d="M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0"
+                                ></path></svg
+                            >
+                            <span class="font-bold text-secondary"
+                                >Descarga de tensión muscular</span
+                            >
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    fill="#E4CE83"
+                                    d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10"
+                                    opacity=".5"></path><path
+                                    fill="#E4CE83"
+                                    d="M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l2.235-2.235L14.97 8.97a.75.75 0 0 1 1.06 0"
+                                ></path></svg
+                            >
+                            <span class="font-bold text-secondary"
+                                >Alivio del dolor no invasivo</span
+                            >
+                        </li>
+                    </ul>
+                    <a
+                        href="#"
+                        class="bg-primary text-white px-8 py-4 rounded-lg font-bold hover:scale-105 transition-all duration-300 shadow-lg block w-fit"
+                    >
+                        Agendar una Consulta
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             TESTIMONIOS
+        ═══════════════════════════════════════════ -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto px-6">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16"
+                >
+                    <div class="max-w-xl">
+                        <h2
+                            class="text-4xl md:text-5xl font-black text-secondary mb-4"
+                        >
+                            Historias de Pacientes
+                        </h2>
+                        <p class="text-on-surface-variant text-lg">
+                            Experiencias reales de personas que recuperaron su
+                            calidad de vida gracias a nuestra terapia.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonio 1 -->
+                    <div
+                        class="bg-white p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow relative"
+                    >
+                        <div class="flex gap-1 text-primary mb-6">
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                        </div>
+                        <p
+                            class="text-on-surface font-medium text-lg italic mb-8 leading-relaxed"
+                        >
+                            "Después de mi cirugía de rodilla, no estaba seguro
+                            de volver a correr. El equipo no solo me ayudó a
+                            caminar, me ayudó a completar mi primer maratón 12
+                            meses después."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-surface-container overflow-hidden shrink-0"
+                            >
+                                <img
+                                    alt="James P"
+                                    class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp61rP9hoZcTlLlyDZBPKyUe0lZWnmX_kfa_Tlw1EQIX2kMfX6jWChMs9SUqm_2E1J-e4yQ47em0z8uHUr6poJAuW7CZmBaNR05AKHt_ZICDki13j-3XWq3gvMkZMjfmWLkSWsL7JzYmQwa0pmX8CVX5QysmboY7AEKWtOUZW2Q-52C7thzjZx9-bBZY1DJUE_81BcrnhOTsf7WGXmVRydWj4rpHVAsLjumIYVYVMfff34eJ5iLWJJvTrUBoHBjcWf7OJz4I2OWw4"
+                                />
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-secondary">
+                                    James Peterson
+                                </h5>
+                                <p
+                                    class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold"
+                                >
+                                    Atleta
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div
+                        class="bg-white p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow relative"
+                    >
+                        <div class="flex gap-1 text-primary mb-6">
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                        </div>
+                        <p
+                            class="text-on-surface font-medium text-lg italic mb-8 leading-relaxed"
+                        >
+                            "El dolor crónico de espalda afectaba mi trabajo y
+                            mi estado de ánimo. Las sesiones de quiropraxia han
+                            sido un cambio total. Me siento años más joven y con
+                            mucha más energía."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-surface-container overflow-hidden shrink-0"
+                            >
+                                <img
+                                    alt="Sarah M"
+                                    class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoClxsFbq6pbjm4nYorJyhUN8kEq22IDy6Hi-d8utvKuwGStEkmdrTzLFbp_xpSE5bXYp_iOTp0ZcR1F-2xCx8cBLsSJkWOtQgz5kIYFr62nKDpuVNrdddx6_aJlSeJuBuwwddUFdGJEKH2wg1XQOD4lSQNVl3jTQrCaHohdSZLLJRahcvuPLJiG-GVihD9COPS6FbbMt31xAiJO2GCpUx-cKnBtXTvWtH3qxLi5E-aQT1HpKIklGK8ewdO5A5Jjlw1Qa1Mwx-tqE"
+                                />
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-secondary">
+                                    Sarah Mitchell
+                                </h5>
+                                <p
+                                    class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold"
+                                >
+                                    Desarrolladora de Software
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 3 -->
+                    <div
+                        class="bg-white p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow relative"
+                    >
+                        <div class="flex gap-1 text-primary mb-6">
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                            <img src="/Star.svg" alt="" class="w-7 h-7" />
+                        </div>
+                        <p
+                            class="text-on-surface font-medium text-lg italic mb-8 leading-relaxed"
+                        >
+                            "El masaje terapéutico aquí va mucho más allá de la
+                            relajación. Es verdaderamente clínico y ha ayudado
+                            significativamente con la movilidad de mi hombro y
+                            mi postura."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-surface-container overflow-hidden shrink-0"
+                            >
+                                <img
+                                    alt="Robert K"
+                                    class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiHVhSMieRhDfAasgLBGEPW1M7b0p7Jpw1JOg-imaFcV0QPyjUKP4Bo9aj5C7nfSOwa_qQASlSre53LJ6lPkNZ_sg8McP3pBTl5YaIIdTp5MdIPBUDVZCT87ixLfcZw8AUFzqlRJ1pRaFr-cpgmQ8X40DgPtfuAURJ6yLrbBnf3zF-cJxuF7qeIqf94K-k3O5ELAumYgs0wQ6KWHulGE1RhmDPKB3M3zY7N12bFJJ-nGkrzQ0ZOI4j6fsa11h6bVi7rpObd-M-A4k"
+                                />
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-secondary">
+                                    Robert King
+                                </h5>
+                                <p
+                                    class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold"
+                                >
+                                    Gerente de Proyectos
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 flex gap-7 pb-20">
+            <div class="w-1/3">
+                <h2>Preguntas Frecuentes</h2>
+                <p class="text-lg mb-5">
+                    Algunas preguntas frecuentes sobre nuestros servicios de
+                    fisioterapia a domicilio.
+                </p>
+                <a
+                    href="#"
+                    class="bg-primary text-white text-lg px-8 py-4 rounded-lg font-bold hover:scale-105 transition-all duration-300 shadow-lg block w-fit"
+                >
+                    Agendar una Consulta
+                </a>
+            </div>
+            <div class="w-2/3" data-faq-list>
+                <article class="border-b border-gray-300">
+                    <button
+                        data-faq-trigger
+                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
+                        aria-expanded="false"
+                    >
+                        <h3 class="text-xl font-bold text-secondary">
+                            ¿Qué tipo de tratamientos ofrecen a domicilio?
+                        </h3>
+                        <span
+                            data-faq-icon
+                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
+                            >+</span
+                        >
+                    </button>
+                    <div data-faq-answer class="hidden overflow-hidden">
+                        <p
+                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
+                        >
+                            Ofrecemos una amplia gama de tratamientos,
+                            incluyendo terapia manual, ejercicios terapéuticos,
+                            quiropraxia, masajes terapéuticos y programas
+                            personalizados de rehabilitación para diversas
+                            condiciones musculoesqueléticas.
+                        </p>
+                    </div>
+                </article>
+                <article class="border-b border-gray-300">
+                    <button
+                        data-faq-trigger
+                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
+                        aria-expanded="false"
+                    >
+                        <h3 class="text-xl font-bold text-secondary">
+                            ¿Cómo se personalizan los tratamientos para cada
+                            paciente?
+                        </h3>
+                        <span
+                            data-faq-icon
+                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
+                            >+</span
+                        >
+                    </button>
+                    <div data-faq-answer class="hidden overflow-hidden">
+                        <p
+                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
+                        >
+                            Cada tratamiento comienza con una evaluación
+                            exhaustiva de tu condición, historial médico y
+                            objetivos de recuperación. A partir de ahí,
+                            diseñamos un plan de tratamiento personalizado que
+                            se adapta a tus necesidades específicas y se ajusta
+                            a medida que avanzas en tu proceso de recuperación.
+                        </p>
+                    </div>
+                </article>
+                <article class="border-b border-gray-300">
+                    <button
+                        data-faq-trigger
+                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
+                        aria-expanded="false"
+                    >
+                        <h3 class="text-xl font-bold text-secondary">
+                            ¿Qué áreas de Cancún cubren para fisioterapia a
+                            domicilio?
+                        </h3>
+                        <span
+                            data-faq-icon
+                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
+                            >+</span
+                        >
+                    </button>
+                    <div data-faq-answer class="hidden overflow-hidden">
+                        <p
+                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
+                        >
+                            Cubrimos toda el área metropolitana de Cancún,
+                            incluyendo las zonas hoteleras, supermanzanas y
+                            áreas residenciales. Nuestro objetivo es llevar la
+                            fisioterapia a tu puerta, sin importar dónde te
+                            encuentres en la ciudad.
+                        </p>
+                    </div>
+                </article>
+                <article class="border-b border-gray-300">
+                    <button
+                        data-faq-trigger
+                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
+                        aria-expanded="false"
+                    >
+                        <h3 class="text-xl font-bold text-secondary">
+                            ¿Cómo puedo agendar una consulta de fisioterapia a
+                            domicilio?
+                        </h3>
+                        <span
+                            data-faq-icon
+                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
+                            >+</span
+                        >
+                    </button>
+                    <div data-faq-answer class="hidden overflow-hidden">
+                        <p
+                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
+                        >
+                            Agendar una consulta es fácil. Puedes hacerlo a
+                            través de nuestro sitio web, llamándonos
+                            directamente o enviándonos un mensaje por WhatsApp.
+                            Nuestro equipo estará encantado de ayudarte a
+                            programar tu primera sesión y responder cualquier
+                            pregunta que puedas tener.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <button
+                        data-faq-trigger
+                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
+                        aria-expanded="false"
+                    >
+                        <h3 class="text-xl font-bold text-secondary">
+                            ¿Qué medidas de seguridad e higiene siguen durante
+                            las sesiones a domicilio?
+                        </h3>
+                        <span
+                            data-faq-icon
+                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
+                            >+</span
+                        >
+                    </button>
+                    <div data-faq-answer class="hidden overflow-hidden">
+                        <p
+                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
+                        >
+                            La seguridad de nuestros pacientes es nuestra máxima
+                            prioridad. Todos nuestros terapeutas siguen
+                            estrictos protocolos de higiene, que incluyen el uso
+                            de equipo de protección personal, desinfección de
+                            equipos y superficies antes y después de cada
+                            sesión, y la implementación de medidas para
+                            garantizar un entorno seguro durante tu tratamiento.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <script>
+            const triggers =
+                document.querySelectorAll<HTMLButtonElement>(
+                    "[data-faq-trigger]",
+                );
+
+            triggers.forEach((trigger) => {
+                trigger.addEventListener("click", () => {
+                    const isOpen =
+                        trigger.getAttribute("aria-expanded") === "true";
+
+                    // Close all
+                    triggers.forEach((t) => {
+                        t.setAttribute("aria-expanded", "false");
+                        const answer = t.nextElementSibling as HTMLElement;
+                        const icon = t.querySelector(
+                            "[data-faq-icon]",
+                        ) as HTMLElement;
+                        answer.classList.add("hidden");
+                        icon.textContent = "+";
+                        icon.style.transform = "rotate(0deg)";
+                    });
+
+                    // Open clicked if it was closed
+                    if (!isOpen) {
+                        trigger.setAttribute("aria-expanded", "true");
+                        const answer =
+                            trigger.nextElementSibling as HTMLElement;
+                        const icon = trigger.querySelector(
+                            "[data-faq-icon]",
+                        ) as HTMLElement;
+                        answer.classList.remove("hidden");
+                        icon.textContent = "×";
+                        icon.style.transform = "rotate(180deg)";
+                    }
+                });
+            });
+        </script>
+    </main>
+
+    <Footer />
+</BaseLayout>

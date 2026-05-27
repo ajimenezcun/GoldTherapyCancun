@@ -1,0 +1,248 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/ui/Header.astro";
+import Footer from "../components/ui/Footer.astro";
+
+const whatsappUrl = "https://wa.me/525500000000";
+---
+
+<BaseLayout
+    title="Contacto | Gold Therapy Cancún"
+    description="Contáctanos para fisioterapia y rehabilitación física a domicilio en Cancún, México."
+>
+    <Header />
+
+    <main>
+        <section class="relative overflow-hidden py-24 text-white">
+            <img
+                src="/hero-section.jpg"
+                alt="Contacto Gold Therapy Cancún"
+                class="absolute inset-0 h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-secondary/75"></div>
+
+            <div class="relative z-10 mx-auto max-w-7xl px-6">
+                <div
+                    class="mb-5 flex flex-wrap items-center gap-2 text-sm font-semibold text-white/90"
+                >
+                    <a href="/" class="transition-colors hover:text-primary"
+                        >Inicio</a
+                    >
+                    <span aria-hidden="true">/</span>
+                    <span class="text-primary">Contacto</span>
+                </div>
+
+                <h1 class="max-w-4xl text-white!">Contacto</h1>
+                <p
+                    class="mt-5 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl"
+                >
+                    Estamos para ayudarte con tu recuperación. Escríbenos y te
+                    orientamos sobre el tratamiento ideal para tu caso.
+                </p>
+            </div>
+        </section>
+
+        <section class="bg-white py-20">
+            <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-3">
+                <article class="rounded-xl bg-surface-container-low p-7">
+                    <h2 class="mb-4 text-3xl!">Atención en Cancún, México</h2>
+                    <p class="mb-6 text-lg text-on-surface-variant">
+                        Brindamos fisioterapia y rehabilitación física a
+                        domicilio en Cancún, Quintana Roo, México.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="mt-2 inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-primary"
+                            ></span>
+                            <span class="text-on-surface-variant">
+                                Cobertura en distintas zonas de Cancún.
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="mt-2 inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-primary"
+                            ></span>
+                            <span class="text-on-surface-variant">
+                                Horarios flexibles según disponibilidad.
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="mt-2 inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-primary"
+                            ></span>
+                            <span class="text-on-surface-variant">
+                                Atención personalizada y seguimiento continuo.
+                            </span>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="rounded-xl bg-surface-container-low p-7">
+                    <h3 class="mb-4 text-2xl!">Canales de contacto</h3>
+                    <div class="space-y-4 text-on-surface-variant">
+                        <p>
+                            <span class="font-bold text-secondary"
+                                >Teléfono:</span
+                            >
+                            <a
+                                href="tel:+525500000000"
+                                class="ml-1 transition-colors hover:text-secondary"
+                                >+52 998 270 1550</a
+                            >
+                        </p>
+                        <p>
+                            <span class="font-bold text-secondary"
+                                >WhatsApp:</span
+                            >
+                            <a
+                                href={whatsappUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="ml-1 transition-colors hover:text-secondary"
+                                >+52 998 270 1550</a
+                            >
+                        </p>
+                        <p>
+                            <span class="font-bold text-secondary"
+                                >Ubicación:</span
+                            >
+                            Cancún, Quintana Roo, México
+                        </p>
+                    </div>
+                </article>
+
+                <article class="rounded-xl bg-secondary p-7 text-white">
+                    <h3 class="mb-4 text-2xl! text-white!">
+                        Respuesta rápida por WhatsApp
+                    </h3>
+                    <p class="mb-6 text-white/90">
+                        Si prefieres una respuesta inmediata, escríbenos por
+                        WhatsApp y te apoyamos con tu valoración inicial.
+                    </p>
+                    <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex rounded-lg bg-[#25d366] px-6 py-3 font-bold text-white transition-colors hover:bg-[#1ebe57]"
+                    >
+                        Abrir WhatsApp
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section class="bg-surface py-20">
+            <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2">
+                <article class="rounded-xl bg-white p-8 shadow-sm">
+                    <h2 class="mb-6">Envíanos un mensaje</h2>
+
+                    <form class="grid gap-5" action="#" method="post">
+                        <div>
+                            <label
+                                for="nombre"
+                                class="mb-2 block font-semibold text-secondary"
+                                >Nombre completo</label
+                            >
+                            <input
+                                id="nombre"
+                                name="nombre"
+                                type="text"
+                                required
+                                class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-colors focus:border-secondary"
+                                placeholder="Tu nombre"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="telefono"
+                                class="mb-2 block font-semibold text-secondary"
+                                >Teléfono</label
+                            >
+                            <input
+                                id="telefono"
+                                name="telefono"
+                                type="tel"
+                                required
+                                class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-colors focus:border-secondary"
+                                placeholder="Tu número"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                for="mensaje"
+                                class="mb-2 block font-semibold text-secondary"
+                                >¿Cómo podemos ayudarte?</label
+                            >
+                            <textarea
+                                id="mensaje"
+                                name="mensaje"
+                                rows={5}
+                                required
+                                class="w-full resize-y rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-colors focus:border-secondary"
+                                placeholder="Cuéntanos tu caso"></textarea>
+                        </div>
+
+                        <div class="flex flex-col gap-3 sm:flex-row">
+                            <button
+                                type="submit"
+                                class="inline-flex justify-center rounded-lg bg-secondary px-6 py-3 font-bold text-white transition-colors hover:bg-secondary-container"
+                            >
+                                Enviar formulario
+                            </button>
+
+                            <a
+                                href={whatsappUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex justify-center rounded-lg bg-[#25d366] px-6 py-3 font-bold text-white transition-colors hover:bg-[#1ebe57]"
+                            >
+                                También por WhatsApp
+                            </a>
+                        </div>
+                    </form>
+                </article>
+
+                <article class="rounded-xl bg-white p-8 shadow-sm">
+                    <h2 class="mb-6">¿Qué pasa después de contactarnos?</h2>
+                    <ol class="space-y-4">
+                        <li class="flex gap-3">
+                            <span
+                                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-on-primary"
+                                >1</span
+                            >
+                            <p class="text-on-surface-variant">
+                                Revisamos tu mensaje y te contactamos para
+                                conocer mejor tu caso.
+                            </p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span
+                                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-on-primary"
+                                >2</span
+                            >
+                            <p class="text-on-surface-variant">
+                                Te orientamos sobre el servicio recomendado y
+                                disponibilidad en Cancún.
+                            </p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span
+                                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-on-primary"
+                                >3</span
+                            >
+                            <p class="text-on-surface-variant">
+                                Agendamos tu sesión a domicilio según el horario
+                                que mejor se adapte a ti.
+                            </p>
+                        </li>
+                    </ol>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>

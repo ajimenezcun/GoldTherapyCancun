@@ -1,0 +1,222 @@
+---
+import services from "../../data/services.json";
+
+interface Props {
+    excludeId?: string;
+}
+
+const { excludeId }: Props = Astro.props;
+const visibleServices = excludeId
+    ? services.filter((service) => service.id !== excludeId)
+    : services;
+---
+
+<div data-carousel-section>
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Wrapper de overflow -->
+        <div>
+            <div class="overflow-hidden" data-carousel-viewport>
+                <!-- Track deslizante -->
+                <div
+                    class="flex transition-transform duration-500 ease-in-out"
+                    data-carousel-track
+                >
+                    {
+                        visibleServices.map((service) => (
+                            <div class="shrink-0 px-3" data-carousel-item>
+                                <div class="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                                    <div class="h-48 overflow-hidden">
+                                        <img
+                                            alt={service.title}
+                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                            src={service.image}
+                                        />
+                                    </div>
+                                    <div class="p-5 space-y-2 flex flex-col flex-1">
+                                        <h3 class="text-2xl font-bold text-secondary">
+                                            {service.title}
+                                        </h3>
+                                        <p class="text-on-surface-variant text-sm leading-relaxed flex-1 mb-5">
+                                            {service.description}
+                                        </p>
+                                        <a
+                                            class="inline-flex items-center text-secondary font-bold text-sm hover:gap-2 transition-all gap-1"
+                                            href={service.href}
+                                        >
+                                            Saber Más{" "}
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <>
+                                                    <path
+                                                        fill="#E4CE83"
+                                                        fill-rule="evenodd"
+                                                        d="M3.25 12a.75.75 0 0 1 .75-.75h9.25v1.5H4a.75.75 0 0 1-.75-.75"
+                                                        clip-rule="evenodd"
+                                                        opacity=".5"
+                                                    />
+                                                    <path
+                                                        fill="#E4CE83"
+                                                        d="M13.25 12.75V18a.75.75 0 0 0 1.28.53l6-6a.75.75 0 0 0 0-1.06l-6-6a.75.75 0 0 0-1.28.53z"
+                                                    />
+                                                </>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Botones prev / next -->
+            <div class="flex justify-center gap-5 mt-8">
+                <button
+                    class="w-11 h-11 rounded-full bg-white shadow-lg flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                    data-carousel-prev
+                    aria-label="Servicio anterior"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 14 14"
+                        ><path
+                            fill="none"
+                            stroke="#1E5FAB"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M13.5 7H.5M4 3.5L.5 7L4 10.5"></path></svg
+                    >
+                </button>
+                <button
+                    class="w-11 h-11 rounded-full bg-white shadow-lg flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                    data-carousel-next
+                    aria-label="Servicio siguiente"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 14 14"
+                        ><path
+                            fill="none"
+                            stroke="#1E5FAB"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M.5 7h13M10 10.5L13.5 7L10 3.5"></path></svg
+                    >
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function initServicesCarousel() {
+        const section = document.querySelector("[data-carousel-section]");
+        if (!section) return;
+
+        const track = section.querySelector<HTMLElement>(
+            "[data-carousel-track]",
+        );
+        const items = Array.from(
+            section.querySelectorAll<HTMLElement>("[data-carousel-item]"),
+        );
+        const btnPrev = section.querySelector<HTMLButtonElement>(
+            "[data-carousel-prev]",
+        );
+        const btnNext = section.querySelector<HTMLButtonElement>(
+            "[data-carousel-next]",
+        );
+
+        if (!track || !items.length || !btnPrev || !btnNext) return;
+
+        const carouselTrack = track;
+        const prevButton = btnPrev;
+        const nextButton = btnNext;
+
+        const AUTOPLAY_DELAY = 4000;
+        let currentIndex = 0;
+        let autoplayTimer: ReturnType<typeof setInterval> | null = null;
+
+        /** Cuántas tarjetas se muestran según el ancho de ventana */
+        function getVisible(): number {
+            if (window.innerWidth >= 1024) return 4;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        }
+
+        /** Aplica el ancho de cada item y mueve el track */
+        function render() {
+            const visible = getVisible();
+            const itemWidth = 100 / visible;
+
+            items.forEach((item) => {
+                item.style.width = `${itemWidth}%`;
+            });
+
+            const maxIndex = Math.max(0, items.length - visible);
+            currentIndex = Math.min(currentIndex, maxIndex);
+
+            carouselTrack.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex >= maxIndex;
+        }
+
+        function goNext() {
+            const maxIndex = Math.max(0, items.length - getVisible());
+            currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+            render();
+        }
+
+        function goPrev() {
+            const maxIndex = Math.max(0, items.length - getVisible());
+            currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+            render();
+        }
+
+        function startAutoplay() {
+            autoplayTimer = setInterval(goNext, AUTOPLAY_DELAY);
+        }
+
+        function resetAutoplay() {
+            if (autoplayTimer) clearInterval(autoplayTimer);
+            startAutoplay();
+        }
+
+        nextButton.addEventListener("click", () => {
+            goNext();
+            resetAutoplay();
+        });
+        prevButton.addEventListener("click", () => {
+            goPrev();
+            resetAutoplay();
+        });
+
+        // Pausa al hacer hover sobre la sección
+        section.addEventListener("mouseenter", () => {
+            if (autoplayTimer) clearInterval(autoplayTimer);
+        });
+        section.addEventListener("mouseleave", startAutoplay);
+
+        // Re-renderizar en resize (debounced)
+        let resizeTimer: ReturnType<typeof setTimeout>;
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(render, 150);
+        });
+
+        render();
+        startAutoplay();
+    }
+
+    // Compatible con View Transitions de Astro
+    document.addEventListener("astro:page-load", initServicesCarousel);
+    initServicesCarousel();
+</script>
