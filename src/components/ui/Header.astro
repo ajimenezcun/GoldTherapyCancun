@@ -20,7 +20,7 @@ const navClass = isHome
     : "hidden md:flex items-center space-x-7 *:uppercase *:font-serif *:text-sm";
 ---
 
-<header class={headerClass}>
+<header class={headerClass} data-mobile-header>
     <div class={innerClass} data-home-shell={isHome ? "true" : undefined}>
         <div class="text-xl font-bold tracking-tight text-primary-container">
             <a href="/"
@@ -75,18 +75,109 @@ const navClass = isHome
                 AGENDAR
             </a>
             <button
-                class="md:hidden text-primary-container rounded-md p-2 hover:bg-primary/20 transition-colors"
+                type="button"
+                class="md:hidden rounded-md p-1.5 transition-colors hover:bg-primary/20"
+                aria-label="Abrir menu"
+                aria-controls="mobile-menu-drawer"
+                aria-expanded="false"
+                data-mobile-menu-trigger
             >
-                <span class="material-symbols-outlined">menu</span>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        fill="#E4CE83"
+                        fill-rule="evenodd"
+                        d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75M3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12m8.25 5.25a.75.75 0 0 1 .75-.75h8.25a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75"
+                        clip-rule="evenodd"
+                    ></path>
+                </svg>
             </button>
         </div>
     </div>
+
+    <div
+        class="mobile-menu-overlay fixed inset-0 z-60 bg-secondary/50 md:hidden"
+        data-mobile-overlay
+        aria-hidden="true"
+    ></div>
+
+    <aside
+        id="mobile-menu-drawer"
+        class="mobile-menu-drawer fixed left-0 top-0 z-70 h-screen w-[75vw] max-w-sm border-r border-secondary/10 bg-white md:hidden"
+        aria-hidden="true"
+        data-mobile-drawer
+    >
+        <div class="flex h-full flex-col">
+            <div class="flex items-center justify-between border-b border-secondary/10 px-5 py-4">
+                <a href="/" class="inline-flex" data-mobile-menu-link>
+                    <img src="/GoldTherapy.webp" alt="Gold Therapy" class="w-16" />
+                </a>
+                <button
+                    type="button"
+                    class="rounded-md p-2 text-secondary transition-colors hover:bg-secondary/10"
+                    aria-label="Cerrar menu"
+                    data-mobile-menu-close
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="m12 10.586l4.95-4.95l1.414 1.414L13.414 12l4.95 4.95l-1.414 1.414L12 13.414l-4.95 4.95l-1.414-1.414l4.95-4.95l-4.95-4.95l1.414-1.414z"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="flex flex-1 flex-col px-5 py-5">
+                <a
+                    href="/sobre-mi"
+                    class="mobile-menu-link"
+                    data-mobile-menu-link
+                >Sobre Mi</a>
+                <a
+                    href="/servicios"
+                    class="mobile-menu-link"
+                    data-mobile-menu-link
+                >Servicios</a>
+                <a
+                    href="/a-domicilio"
+                    class="mobile-menu-link"
+                    data-mobile-menu-link
+                >a Domicilio</a>
+                <a
+                    href="/contacto"
+                    class="mobile-menu-link"
+                    data-mobile-menu-link
+                >Contacto</a>
+            </nav>
+
+            <div class="border-t border-secondary/10 px-5 py-5">
+                <a
+                    href="https://wa.me/525500000000"
+                    class="inline-flex w-full items-center justify-center rounded-xl bg-secondary px-5 py-3 font-bold text-white"
+                    data-mobile-menu-link
+                >
+                    AGENDAR
+                </a>
+            </div>
+        </div>
+    </aside>
 </header>
 
 {
-    isHome && (
+    isHome &&
         <script>
-            const homeHeader = document.querySelector("header") as HTMLElement | null;
+            const homeHeader = document.querySelector("header[data-mobile-header]");
 
             const toggleHeaderScrollState = () => {
                 if (!homeHeader) return;
@@ -103,8 +194,94 @@ const navClass = isHome
                 passive: true,
             });
         </script>
-    )
 }
+
+<script>
+    const mobileHeader = document.querySelector("[data-mobile-header]");
+
+    if (mobileHeader) {
+        const menuTrigger = mobileHeader.querySelector("[data-mobile-menu-trigger]");
+        const menuClose = mobileHeader.querySelector("[data-mobile-menu-close]");
+        const menuOverlay = mobileHeader.querySelector("[data-mobile-overlay]");
+        const menuDrawer = mobileHeader.querySelector("[data-mobile-drawer]");
+        const menuLinks = mobileHeader.querySelectorAll("[data-mobile-menu-link]");
+
+        const isMenuOpen = () =>
+            mobileHeader.getAttribute("data-mobile-open") === "true";
+
+        const openMenu = () => {
+            mobileHeader.setAttribute("data-mobile-open", "true");
+            document.body.style.overflow = "hidden";
+
+            if (menuTrigger) {
+                menuTrigger.setAttribute("aria-expanded", "true");
+            }
+
+            if (menuDrawer) {
+                menuDrawer.setAttribute("aria-hidden", "false");
+            }
+        };
+
+        const closeMenu = () => {
+            mobileHeader.setAttribute("data-mobile-open", "false");
+            document.body.style.overflow = "";
+
+            if (menuTrigger) {
+                menuTrigger.setAttribute("aria-expanded", "false");
+            }
+
+            if (menuDrawer) {
+                menuDrawer.setAttribute("aria-hidden", "true");
+            }
+        };
+
+        closeMenu();
+
+        if (menuTrigger) {
+            menuTrigger.addEventListener("click", () => {
+                openMenu();
+            });
+        }
+
+        if (menuClose) {
+            menuClose.addEventListener("click", () => {
+                closeMenu();
+            });
+        }
+
+        if (menuOverlay) {
+            menuOverlay.addEventListener("click", () => {
+                closeMenu();
+            });
+        }
+
+        document.addEventListener("pointerdown", (event) => {
+            if (!isMenuOpen()) return;
+
+            const target = event.target as Node | null;
+            if (!target) return;
+
+            const clickedInsideDrawer = menuDrawer?.contains(target);
+            const clickedTrigger = menuTrigger?.contains(target);
+
+            if (!clickedInsideDrawer && !clickedTrigger) {
+                closeMenu();
+            }
+        });
+
+        menuLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                closeMenu();
+            });
+        });
+
+        window.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeMenu();
+            }
+        });
+    }
+</script>
 
 <style>
     header[data-scrolled="true"] {
@@ -132,5 +309,43 @@ const navClass = isHome
             rgba(255, 255, 255, 0.88) 0%,
             rgba(255, 255, 255, 0.78) 100%
         );
+    }
+
+    .mobile-menu-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 220ms ease;
+    }
+
+    .mobile-menu-drawer {
+        transform: translateX(-100%);
+        opacity: 0.92;
+        transition: transform 220ms ease, opacity 220ms ease;
+    }
+
+    [data-mobile-header][data-mobile-open="true"] .mobile-menu-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    [data-mobile-header][data-mobile-open="true"] .mobile-menu-drawer {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .mobile-menu-link {
+        border-bottom: 1px solid rgba(30, 95, 171, 0.12);
+        padding: 0.95rem 0;
+        font-family: var(--font-serif);
+        font-size: 1.02rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #1e5fab;
+        transition: color 180ms ease;
+    }
+
+    .mobile-menu-link:hover {
+        color: #c9a943;
     }
 </style>
