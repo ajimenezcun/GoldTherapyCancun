@@ -1,0 +1,114 @@
+[
+    {
+        "name": "James Peterson",
+        "role": "Atleta",
+        "quote": "Despues de mi cirugia de rodilla recupere confianza, estabilidad y pude volver a correr sin dolor.",
+        "stars": 4,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Sarah Mitchell",
+        "role": "Desarrolladora",
+        "quote": "Mi dolor lumbar disminuyo en pocas semanas y ahora trabajo con mejor postura y mas energia.",
+        "stars": 5,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Robert King",
+        "role": "Gerente de proyectos",
+        "quote": "La terapia manual y los ejercicios guiados mejoraron mi hombro y mi movilidad diaria.",
+        "stars": 4,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Daniela Cruz",
+        "role": "Arquitecta",
+        "quote": "La recuperacion de mi tobillo fue progresiva y muy clara. Volvi a mis actividades sin recaidas.",
+        "stars": 5,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Luis Herrera",
+        "role": "Docente",
+        "quote": "La atencion en casa me ayudo a mantener continuidad en el tratamiento y reducir el dolor cervical.",
+        "stars": 4,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Mariana Solis",
+        "role": "Disenadora",
+        "quote": "Me encanto el enfoque personalizado. En pocas sesiones recupere movilidad en el cuello y hombros.",
+        "stars": 5,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Oscar Medina",
+        "role": "Empresario",
+        "quote": "Despues de una lesion deportiva pude volver a entrenar sin molestias y con mejor tecnica de movimiento.",
+        "stars": 4,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Paola Mendez",
+        "role": "Nutriologa",
+        "quote": "Las sesiones en casa hicieron toda la diferencia. Progreso constante y seguimiento muy profesional.",
+        "stars": 5,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Carlos Vega",
+        "role": "Ingeniero",
+        "quote": "Me ayudaron a reducir dolor lumbar y mejorar postura para trabajar mejor durante el dia.",
+        "stars": 4,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Ana Lucia Rojas",
+        "role": "Fotografa",
+        "quote": "Excelente atencion y ejercicios claros para continuar entre sesiones. Muy recomendable.",
+        "stars": 5,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Miguel Torres",
+        "role": "Administrador",
+        "quote": "La recuperacion de mi hombro fue mucho mas rapida con el plan que me dieron y la supervision continua.",
+        "stars": 4,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Fernanda Ibarra",
+        "role": "Psicologa",
+        "quote": "La terapia en domicilio me dio seguridad y constancia. Disminuyo el dolor y mejore mi movilidad.",
+        "stars": 5,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Diego Paredes",
+        "role": "Chef",
+        "quote": "Pase de sentir rigidez diaria a moverme con libertad. El tratamiento estuvo muy bien estructurado.",
+        "stars": 4,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Valeria Jimenez",
+        "role": "Abogada",
+        "quote": "Los resultados se notaron desde las primeras semanas. La atencion y puntualidad fueron excelentes.",
+        "stars": 5,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Ricardo Nunez",
+        "role": "Contador",
+        "quote": "Me apoyaron en mi rehabilitacion post operatoria con ejercicios progresivos y objetivos muy claros.",
+        "stars": 5,
+        "published": "December 23, 2025"
+    },
+    {
+        "name": "Elena Campos",
+        "role": "Comunicologa",
+        "quote": "Gran experiencia. Plan de trabajo realista, seguimiento puntual y una mejora notable en pocas semanas.",
+        "stars": 4,
+        "published": "December 23, 2025"
+    }
+]

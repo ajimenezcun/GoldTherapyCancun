@@ -1,0 +1,249 @@
+---
+import reviews from "../../data/reviews.json";
+
+interface ReviewItem {
+    name: string;
+    role: string;
+    quote: string;
+    stars: number;
+    published: string;
+}
+
+const reviewItems = reviews as ReviewItem[];
+---
+
+<div class="relative" data-reviews-carousel>
+    <div class="mb-8 flex items-center justify-end gap-3">
+        <button
+            type="button"
+            data-carousel-arrow="prev"
+            aria-label="Ver resena anterior"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-secondary/20 bg-white text-secondary transition-colors hover:bg-secondary hover:text-white"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+                <path
+                    d="M15 6L9 12L15 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+        </button>
+        <button
+            type="button"
+            data-carousel-arrow="next"
+            aria-label="Ver siguiente resena"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-secondary/20 bg-white text-secondary transition-colors hover:bg-secondary hover:text-white"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+                <path
+                    d="M9 6L15 12L9 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="overflow-hidden" data-carousel-viewport>
+        <div
+            class="flex gap-7 transition-transform duration-500 ease-out will-change-transform"
+            data-carousel-track
+        >
+            {
+                reviewItems.map((review) => (
+                    <article
+                        class="shrink-0 rounded-3xl border border-secondary/10 bg-white p-8 transition-shadow duration-300 hover:shadow-[0_18px_42px_rgba(0,35,90,0.12)]"
+                        data-carousel-slide
+                    >
+                        <div class="mb-5 flex gap-1">
+                            {Array.from({ length: review.stars }).map(() => (
+                                <img
+                                    src="/Star.svg"
+                                    alt="Estrella"
+                                    class="h-6 w-6"
+                                />
+                            ))}
+                        </div>
+                        <p class="mb-7 italic leading-relaxed text-on-surface">
+                            "{review.quote}"
+                        </p>
+                        <p class="font-black text-secondary">{review.name}</p>
+                        <p class="text-xs font-semibold uppercase tracking-[0.13em] text-on-surface-variant">
+                            {review.role}
+                        </p>
+                        <p class="mt-2 text-xs text-on-surface-variant/80">
+                            {review.published}
+                        </p>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+
+    <div
+        class="mt-7 flex items-center justify-center gap-2"
+        data-carousel-bullets
+    >
+    </div>
+</div>
+
+<script>
+    const root = document.querySelector(
+        "[data-reviews-carousel]",
+    ) as HTMLElement | null;
+
+    if (root) {
+        const viewport = root.querySelector(
+            "[data-carousel-viewport]",
+        ) as HTMLElement | null;
+        const track = root.querySelector(
+            "[data-carousel-track]",
+        ) as HTMLElement | null;
+        const slides = Array.from(
+            root.querySelectorAll<HTMLElement>("[data-carousel-slide]"),
+        );
+        const prevArrow = root.querySelector(
+            "[data-carousel-arrow='prev']",
+        ) as HTMLButtonElement | null;
+        const nextArrow = root.querySelector(
+            "[data-carousel-arrow='next']",
+        ) as HTMLButtonElement | null;
+
+        let activeIndex = 0;
+        let perView = 1;
+        let autoplayId: number | undefined;
+        let resizeRaf = 0;
+        let bullets: HTMLButtonElement[] = [];
+        const gapPx = 28;
+
+        const getPerView = () => {
+            if (window.innerWidth >= 1024) return 4;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        };
+
+        const getMaxIndex = () => Math.max(0, slides.length - perView);
+
+        const renderBullets = () => {
+            const bulletsRoot = root.querySelector(
+                "[data-carousel-bullets]",
+            ) as HTMLElement | null;
+            if (!bulletsRoot) return;
+
+            bulletsRoot.innerHTML = "";
+            bullets = [];
+
+            const total = getMaxIndex() + 1;
+            for (let i = 0; i < total; i += 1) {
+                const bullet = document.createElement("button");
+                bullet.type = "button";
+                bullet.setAttribute("aria-label", `Ir al slide ${i + 1}`);
+                bullet.className =
+                    "h-2.5 w-2.5 rounded-full bg-secondary/25 transition-all duration-300";
+                bullet.addEventListener("click", () => {
+                    activeIndex = i;
+                    update(true);
+                });
+                bulletsRoot.appendChild(bullet);
+                bullets.push(bullet);
+            }
+        };
+
+        const updateBullets = () => {
+            bullets.forEach((bullet, index) => {
+                if (index === activeIndex) {
+                    bullet.classList.remove("bg-secondary/25", "w-2.5");
+                    bullet.classList.add("bg-secondary", "w-7");
+                } else {
+                    bullet.classList.remove("bg-secondary", "w-7");
+                    bullet.classList.add("bg-secondary/25", "w-2.5");
+                }
+            });
+        };
+
+        const update = (animated = true) => {
+            if (!track || !slides.length) return;
+
+            const slideWidth = slides[0].offsetWidth;
+            track.style.transitionDuration = animated ? "500ms" : "0ms";
+            track.style.transform = `translateX(-${activeIndex * (slideWidth + gapPx)}px)`;
+            updateBullets();
+        };
+
+        const layout = () => {
+            if (!viewport || !slides.length) return;
+
+            perView = getPerView();
+            const viewportWidth = viewport.clientWidth;
+            const totalGap = gapPx * (perView - 1);
+            const slideWidth = Math.floor((viewportWidth - totalGap) / perView);
+
+            slides.forEach((slide) => {
+                slide.style.width = `${slideWidth}px`;
+            });
+
+            if (activeIndex > getMaxIndex()) {
+                activeIndex = 0;
+            }
+
+            renderBullets();
+            update(false);
+        };
+
+        const goTo = (direction: "next" | "prev") => {
+            const maxIndex = getMaxIndex();
+            if (maxIndex <= 0) return;
+
+            if (direction === "next") {
+                activeIndex = activeIndex >= maxIndex ? 0 : activeIndex + 1;
+            } else {
+                activeIndex = activeIndex <= 0 ? maxIndex : activeIndex - 1;
+            }
+
+            update(true);
+        };
+
+        const stopAutoplay = () => {
+            if (autoplayId) {
+                window.clearInterval(autoplayId);
+            }
+        };
+
+        const startAutoplay = () => {
+            stopAutoplay();
+            autoplayId = window.setInterval(() => {
+                goTo("next");
+            }, 3500);
+        };
+
+        prevArrow?.addEventListener("click", () => goTo("prev"));
+        nextArrow?.addEventListener("click", () => goTo("next"));
+
+        root.addEventListener("mouseenter", stopAutoplay);
+        root.addEventListener("mouseleave", startAutoplay);
+        root.addEventListener("focusin", stopAutoplay);
+        root.addEventListener("focusout", startAutoplay);
+
+        window.addEventListener("resize", () => {
+            window.cancelAnimationFrame(resizeRaf);
+            resizeRaf = window.requestAnimationFrame(layout);
+        });
+
+        layout();
+        startAutoplay();
+    }
+</script>

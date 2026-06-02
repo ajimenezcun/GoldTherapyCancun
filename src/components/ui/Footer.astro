@@ -1,8 +1,25 @@
 ---
+interface Props {
+    variant?: "default" | "home";
+}
 
+const { variant = "default" } = Astro.props;
+const isHome = variant === "home";
+
+const footerClass = isHome
+    ? "relative w-full overflow-hidden pt-24 pb-8 bg-[radial-gradient(circle_at_12%_8%,_#2f75c7_0%,_#003366_42%,_#001a33_100%)]"
+    : "bg-secondary-container w-full pt-16 pb-8";
 ---
 
-<footer class="bg-secondary-container w-full pt-16 pb-8">
+<footer class={footerClass}>
+    {
+        isHome && (
+            <>
+                <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(228,206,131,0.2)_0%,rgba(228,206,131,0)_100%)]" />
+                <div class="pointer-events-none absolute -left-12 top-14 h-44 w-44 rounded-full bg-primary/18 blur-3xl" />
+            </>
+        )
+    }
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
         <!-- Columna 1: Logo + descripción + redes -->
         <div class="col-span-1">
@@ -75,33 +92,41 @@
 
         <!-- Columna 2: Servicios -->
         <div>
-            <h4 class="!text-primary font-bold mb-5 uppercase">Servicios</h4>
+            <h4 class="text-primary! font-bold mb-5 uppercase">Servicios</h4>
             <ul
                 class="space-y-3 *:text-blue-100/60 *:transition-all *:hover:text-white"
             >
                 <li>
-                    <a class="" href="#">Fisioterapia</a>
+                    <a href="/servicios/fisioterapia-general"
+                        >Fisioterapia General</a
+                    >
                 </li>
                 <li>
-                    <a class="" href="#">Masaje Deportivo</a>
+                    <a href="/servicios/rehabilitacion-post-operatoria"
+                        >Rehabilitación Post Operatoria</a
+                    >
                 </li>
                 <li>
-                    <a class="" href="#">Quiropraxia</a>
+                    <a href="/servicios/fisioterapia-deportiva"
+                        >Fisioterapia Deportiva</a
+                    >
                 </li>
                 <li>
-                    <a class="" href="#">Rehabilitación Post-Op</a>
+                    <a href="/servicios/fisioterapia-neurologica"
+                        >Fisioterapia Neurológica</a
+                    >
                 </li>
             </ul>
         </div>
 
         <!-- Columna 3: Links rápidos -->
         <div>
-            <h4 class="!text-primary font-bold mb-5 uppercase">Información</h4>
+            <h4 class="text-primary! font-bold mb-5 uppercase">Información</h4>
             <ul
                 class="space-y-3 *:text-blue-100/60 *:transition-all *:hover:text-white"
             >
                 <li>
-                    <a class="" href="/">Pagina de Inicio</a>
+                    <a class="" href="/">Inicio</a>
                 </li>
                 <li>
                     <a class="" href="/sobre-mi">Sobre Mí</a>
@@ -120,7 +145,7 @@
 
         <!-- Columna 4: Newsletter -->
         <div>
-            <h4 class="!text-primary font-bold mb-5 uppercase">Legal</h4>
+            <h4 class="text-primary! font-bold mb-5 uppercase">Legal</h4>
             <ul
                 class="space-y-3 *:text-blue-100/60 *:transition-all *:hover:text-white"
             >
@@ -153,7 +178,7 @@
                 >Desarrollado por <a
                     href="https://creativoapp.com"
                     title="Creativo APP"
-                    class="text-blue-700 font-semibold transition-colors hover:text-white"
+                    class="text-primary font-semibold transition-colors hover:text-white"
                     target="_blank">Creativo APP</a
                 ></span
             >

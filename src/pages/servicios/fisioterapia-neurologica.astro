@@ -7,7 +7,15 @@ import ServicePage from "../../components/sections/ServicePage.astro";
     pageTitle="Fisioterapia Neurológica"
     metaDescription="Fisioterapia neurológica a domicilio en Cancún para mejorar equilibrio, coordinación y autonomía funcional en pacientes neurológicos."
     shortDescription="Tratamiento terapéutico enfocado en mejorar control motor, equilibrio y calidad de vida en condiciones del sistema nervioso."
-    about="La fisioterapia neurológica está dirigida a personas con alteraciones en movimiento, tono muscular o coordinación por causas neurológicas. Trabajamos objetivos funcionales concretos para promover mayor independencia en actividades cotidianas y mejorar la participación en su entorno."
+    aboutIntro="La fisioterapia neurológica está dirigida a pacientes con alteraciones del movimiento, tono muscular, equilibrio o coordinación asociadas a condiciones del sistema nervioso. En Gold Therapy trabajamos objetivos funcionales concretos para aumentar autonomía en actividades diarias, mejorar seguridad al desplazarse y favorecer una participación más activa en casa y en su entorno."
+    serviceDetails={[
+        "Evaluación de control postural, equilibrio y coordinación funcional.",
+        "Ejercicios de activación motora para mejorar patrones de movimiento.",
+        "Trabajo de transferencia, marcha asistida y desplazamientos seguros.",
+        "Entrenamiento de fuerza y resistencia según tolerancia neurológica.",
+        "Estimulación de tareas funcionales orientadas a la autonomía.",
+        "Educación familiar para apoyo terapéutico en el hogar.",
+    ]}
     forYouPoints={[
         "Presentas secuelas motoras por evento neurológico.",
         "Tienes dificultad para caminar, mantener el equilibrio o coordinar movimientos.",
@@ -15,9 +23,21 @@ import ServicePage from "../../components/sections/ServicePage.astro";
         "Buscas continuidad terapéutica en casa con seguimiento profesional.",
     ]}
     highlights={[
-        "Entrenamiento de equilibrio y coordinación funcional.",
-        "Trabajo de control postural y transferencia de peso.",
-        "Ejercicios para potenciar autonomía en actividades diarias.",
+        {
+            title: "Mayor seguridad en equilibrio y marcha",
+            description:
+                "Entrenamos desplazamientos y cambios de posición para reducir riesgo de caídas en casa.",
+        },
+        {
+            title: "Mejor control postural en tareas cotidianas",
+            description:
+                "Fortalecemos la estabilidad necesaria para sentarte, levantarte y moverte con más confianza.",
+        },
+        {
+            title: "Autonomía funcional progresiva",
+            description:
+                "Trabajamos metas realistas para aumentar independencia en actividades básicas y de autocuidado.",
+        },
     ]}
     heroImage="/service-4.jpg"
 />

@@ -7,7 +7,15 @@ import ServicePage from "../../components/sections/ServicePage.astro";
     pageTitle="Fisioterapia Deportiva"
     metaDescription="Fisioterapia deportiva a domicilio en Cancún para prevenir lesiones, optimizar rendimiento y volver al entrenamiento de forma segura."
     shortDescription="Atención especializada para deportistas y personas activas que buscan recuperarse rápido y volver al movimiento sin dolor."
-    about="La fisioterapia deportiva aborda lesiones por sobrecarga, esguinces, tendinopatías y molestias recurrentes derivadas del entrenamiento. Diseñamos estrategias de recuperación y prevención para que regreses a tu actividad física con mejor control, técnica y resistencia."
+    aboutIntro="La fisioterapia deportiva está enfocada en recuperar lesiones y optimizar el movimiento de personas activas, desde atletas recreativos hasta deportistas de alto rendimiento. En Gold Therapy analizamos los gestos técnicos, la carga de entrenamiento y los factores de riesgo para diseñar una rehabilitación que no solo alivie dolor, sino que mejore tu desempeño y reduzca recaídas."
+    serviceDetails={[
+        "Evaluación de patrones de movimiento y biomecánica deportiva.",
+        "Manejo de dolor y tejidos sobrecargados por entrenamiento.",
+        "Fortalecimiento específico por disciplina y gesto técnico.",
+        "Trabajo de estabilidad, propiocepción y control neuromuscular.",
+        "Readaptación progresiva al entrenamiento y competencia.",
+        "Plan preventivo para minimizar riesgo de nueva lesión.",
+    ]}
     forYouPoints={[
         "Presentas dolor durante o después de entrenar.",
         "Tuviste una lesión deportiva y quieres volver sin riesgo.",
@@ -15,9 +23,21 @@ import ServicePage from "../../components/sections/ServicePage.astro";
         "Quieres prevenir lesiones antes de una competencia o temporada.",
     ]}
     highlights={[
-        "Readaptación al entrenamiento por fases.",
-        "Corrección biomecánica y técnica de movimiento.",
-        "Protocolos de prevención para evitar recaídas.",
+        {
+            title: "Retorno deportivo por fases y criterios claros",
+            description:
+                "Progresas de forma segura desde la recuperación inicial hasta volver a entrenar con confianza.",
+        },
+        {
+            title: "Mejor técnica y eficiencia de movimiento",
+            description:
+                "Corregimos patrones biomecánicos para reducir sobrecargas y mejorar rendimiento durante la práctica.",
+        },
+        {
+            title: "Prevención de recaídas y sobreentrenamiento",
+            description:
+                "Combinamos control de carga, movilidad y fuerza específica para disminuir el riesgo de nueva lesión.",
+        },
     ]}
     heroImage="/service-3.jpg"
 />

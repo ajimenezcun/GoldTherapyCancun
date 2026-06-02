@@ -12,14 +12,21 @@ const whatsappUrl = "https://wa.me/525500000000";
 >
     <Header />
 
-    <main>
+    <main class="contact-main overflow-hidden">
         <section class="relative overflow-hidden py-24 text-white">
             <img
                 src="/hero-section.jpg"
                 alt="Contacto Gold Therapy Cancún"
                 class="absolute inset-0 h-full w-full object-cover"
             />
-            <div class="absolute inset-0 bg-secondary/75"></div>
+            <div
+                class="absolute inset-0 bg-[linear-gradient(112deg,rgba(0,27,55,0.9)_6%,rgba(0,51,102,0.72)_54%,rgba(0,51,102,0.26)_100%)]"
+            >
+            </div>
+            <div
+                class="absolute -left-24 top-16 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
+            >
+            </div>
 
             <div class="relative z-10 mx-auto max-w-7xl px-6">
                 <div
@@ -44,7 +51,9 @@ const whatsappUrl = "https://wa.me/525500000000";
 
         <section class="bg-white py-20">
             <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-3">
-                <article class="rounded-xl bg-surface-container-low p-7">
+                <article
+                    class="rounded-2xl border border-secondary/12 bg-surface-container-low p-7 shadow-[0_14px_34px_rgba(0,35,90,0.08)]"
+                >
                     <h2 class="mb-4 text-3xl!">Atención en Cancún, México</h2>
                     <p class="mb-6 text-lg text-on-surface-variant">
                         Brindamos fisioterapia y rehabilitación física a
@@ -78,10 +87,12 @@ const whatsappUrl = "https://wa.me/525500000000";
                     </ul>
                 </article>
 
-                <article class="rounded-xl bg-surface-container-low p-7">
+                <article
+                    class="rounded-2xl border border-secondary/12 bg-surface-container-low p-7 shadow-[0_14px_34px_rgba(0,35,90,0.08)]"
+                >
                     <h3 class="mb-4 text-2xl!">Canales de contacto</h3>
                     <div class="space-y-4 text-on-surface-variant">
-                        <p>
+                        <p class="rounded-xl bg-white px-4 py-3">
                             <span class="font-bold text-secondary"
                                 >Teléfono:</span
                             >
@@ -91,7 +102,7 @@ const whatsappUrl = "https://wa.me/525500000000";
                                 >+52 998 270 1550</a
                             >
                         </p>
-                        <p>
+                        <p class="rounded-xl bg-white px-4 py-3">
                             <span class="font-bold text-secondary"
                                 >WhatsApp:</span
                             >
@@ -103,7 +114,7 @@ const whatsappUrl = "https://wa.me/525500000000";
                                 >+52 998 270 1550</a
                             >
                         </p>
-                        <p>
+                        <p class="rounded-xl bg-white px-4 py-3">
                             <span class="font-bold text-secondary"
                                 >Ubicación:</span
                             >
@@ -112,7 +123,9 @@ const whatsappUrl = "https://wa.me/525500000000";
                     </div>
                 </article>
 
-                <article class="rounded-xl bg-secondary p-7 text-white">
+                <article
+                    class="rounded-2xl bg-secondary p-7 text-white shadow-[0_16px_36px_rgba(0,35,90,0.2)]"
+                >
                     <h3 class="mb-4 text-2xl! text-white!">
                         Respuesta rápida por WhatsApp
                     </h3>
@@ -134,7 +147,9 @@ const whatsappUrl = "https://wa.me/525500000000";
 
         <section class="bg-surface py-20">
             <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2">
-                <article class="rounded-xl bg-white p-8 shadow-sm">
+                <article
+                    class="rounded-2xl border border-secondary/12 bg-white p-8 shadow-[0_16px_40px_rgba(0,45,94,0.08)]"
+                >
                     <h2 class="mb-6">Envíanos un mensaje</h2>
 
                     <form class="grid gap-5" action="#" method="post">
@@ -149,7 +164,7 @@ const whatsappUrl = "https://wa.me/525500000000";
                                 name="nombre"
                                 type="text"
                                 required
-                                class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-colors focus:border-secondary"
+                                class="w-full rounded-xl border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-secondary focus:shadow-[0_0_0_4px_rgba(30,95,171,0.14)]"
                                 placeholder="Tu nombre"
                             />
                         </div>
@@ -165,7 +180,7 @@ const whatsappUrl = "https://wa.me/525500000000";
                                 name="telefono"
                                 type="tel"
                                 required
-                                class="w-full rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-colors focus:border-secondary"
+                                class="w-full rounded-xl border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-secondary focus:shadow-[0_0_0_4px_rgba(30,95,171,0.14)]"
                                 placeholder="Tu número"
                             />
                         </div>
@@ -181,14 +196,14 @@ const whatsappUrl = "https://wa.me/525500000000";
                                 name="mensaje"
                                 rows={5}
                                 required
-                                class="w-full resize-y rounded-lg border border-outline-variant bg-white px-4 py-3 outline-none transition-colors focus:border-secondary"
+                                class="w-full resize-y rounded-xl border border-outline-variant bg-white px-4 py-3 outline-none transition-all focus:border-secondary focus:shadow-[0_0_0_4px_rgba(30,95,171,0.14)]"
                                 placeholder="Cuéntanos tu caso"></textarea>
                         </div>
 
                         <div class="flex flex-col gap-3 sm:flex-row">
                             <button
                                 type="submit"
-                                class="inline-flex justify-center rounded-lg bg-secondary px-6 py-3 font-bold text-white transition-colors hover:bg-secondary-container"
+                                class="inline-flex justify-center rounded-xl bg-secondary px-6 py-3 font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-secondary-container"
                             >
                                 Enviar formulario
                             </button>
@@ -197,7 +212,7 @@ const whatsappUrl = "https://wa.me/525500000000";
                                 href={whatsappUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="inline-flex justify-center rounded-lg bg-[#25d366] px-6 py-3 font-bold text-white transition-colors hover:bg-[#1ebe57]"
+                                class="inline-flex justify-center rounded-xl bg-[#25d366] px-6 py-3 font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#1ebe57]"
                             >
                                 También por WhatsApp
                             </a>
@@ -205,35 +220,46 @@ const whatsappUrl = "https://wa.me/525500000000";
                     </form>
                 </article>
 
-                <article class="rounded-xl bg-white p-8 shadow-sm">
+                <article
+                    class="rounded-2xl border border-secondary/12 bg-white p-8 shadow-[0_16px_40px_rgba(0,45,94,0.08)]"
+                >
                     <h2 class="mb-6">¿Qué pasa después de contactarnos?</h2>
                     <ol class="space-y-4">
-                        <li class="flex gap-3">
-                            <span
-                                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-on-primary"
-                                >1</span
+                        <li
+                            class="rounded-xl border border-secondary/10 bg-surface-container-low p-4"
+                        >
+                            <p
+                                class="text-sm font-black tracking-[0.2em] text-primary-container"
                             >
-                            <p class="text-on-surface-variant">
+                                01
+                            </p>
+                            <p class="mt-2 text-on-surface-variant">
                                 Revisamos tu mensaje y te contactamos para
                                 conocer mejor tu caso.
                             </p>
                         </li>
-                        <li class="flex gap-3">
-                            <span
-                                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-on-primary"
-                                >2</span
+                        <li
+                            class="rounded-xl border border-secondary/10 bg-surface-container-low p-4"
+                        >
+                            <p
+                                class="text-sm font-black tracking-[0.2em] text-primary-container"
                             >
-                            <p class="text-on-surface-variant">
+                                02
+                            </p>
+                            <p class="mt-2 text-on-surface-variant">
                                 Te orientamos sobre el servicio recomendado y
                                 disponibilidad en Cancún.
                             </p>
                         </li>
-                        <li class="flex gap-3">
-                            <span
-                                class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-on-primary"
-                                >3</span
+                        <li
+                            class="rounded-xl border border-secondary/10 bg-surface-container-low p-4"
+                        >
+                            <p
+                                class="text-sm font-black tracking-[0.2em] text-primary-container"
                             >
-                            <p class="text-on-surface-variant">
+                                03
+                            </p>
+                            <p class="mt-2 text-on-surface-variant">
                                 Agendamos tu sesión a domicilio según el horario
                                 que mejor se adapte a ti.
                             </p>
@@ -245,4 +271,21 @@ const whatsappUrl = "https://wa.me/525500000000";
     </main>
 
     <Footer />
+
+    <style>
+        .contact-main {
+            background:
+                radial-gradient(
+                    circle at 10% 12%,
+                    rgba(228, 206, 131, 0.18),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 92% 24%,
+                    rgba(30, 95, 171, 0.12),
+                    transparent 30%
+                ),
+                linear-gradient(180deg, #f7f8fb 0%, #f5f5f5 24%, #f5f5f5 100%);
+        }
+    </style>
 </BaseLayout>

@@ -12,14 +12,21 @@ const whatsappUrl = "https://wa.me/525500000000";
 >
     <Header />
 
-    <main>
+    <main class="legal-main overflow-hidden">
         <section class="relative overflow-hidden py-24 text-white">
             <img
                 src="/hero-section.jpg"
                 alt="Términos de Servicio"
                 class="absolute inset-0 h-full w-full object-cover"
             />
-            <div class="absolute inset-0 bg-secondary/75"></div>
+            <div
+                class="absolute inset-0 bg-[linear-gradient(112deg,rgba(0,27,55,0.9)_6%,rgba(0,51,102,0.72)_54%,rgba(0,51,102,0.26)_100%)]"
+            >
+            </div>
+            <div
+                class="absolute -left-24 top-16 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
+            >
+            </div>
 
             <div class="relative z-10 mx-auto max-w-7xl px-6">
                 <div
@@ -44,7 +51,7 @@ const whatsappUrl = "https://wa.me/525500000000";
 
         <section class="bg-white py-20">
             <div
-                class="mx-auto max-w-4xl space-y-10 px-6 text-on-surface-variant"
+                class="legal-content mx-auto max-w-4xl space-y-6 px-6 text-on-surface-variant"
             >
                 <article class="rounded-xl bg-surface-container-low p-8">
                     <h2 class="mb-4 text-3xl!">
@@ -164,7 +171,9 @@ const whatsappUrl = "https://wa.me/525500000000";
 
         <section class="bg-surface py-16">
             <div class="mx-auto max-w-5xl px-6">
-                <div class="rounded-xl bg-secondary p-8 text-white shadow-sm">
+                <div
+                    class="rounded-2xl bg-secondary p-8 text-white shadow-[0_16px_36px_rgba(0,35,90,0.2)]"
+                >
                     <h3 class="mb-4 text-2xl! text-white!">
                         ¿Dudas sobre los términos?
                     </h3>
@@ -176,7 +185,7 @@ const whatsappUrl = "https://wa.me/525500000000";
                         href={whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex rounded-lg bg-[#25d366] px-6 py-3 font-bold text-white transition-colors hover:bg-[#1ebe57]"
+                        class="inline-flex rounded-xl bg-[#25d366] px-6 py-3 font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#1ebe57]"
                     >
                         Contactar por WhatsApp
                     </a>
@@ -186,4 +195,38 @@ const whatsappUrl = "https://wa.me/525500000000";
     </main>
 
     <Footer />
+
+    <style>
+        .legal-main {
+            background:
+                radial-gradient(
+                    circle at 10% 12%,
+                    rgba(228, 206, 131, 0.18),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 92% 24%,
+                    rgba(30, 95, 171, 0.12),
+                    transparent 30%
+                ),
+                linear-gradient(180deg, #f7f8fb 0%, #f5f5f5 24%, #f5f5f5 100%);
+        }
+
+        .legal-content article {
+            border: 1px solid rgba(30, 95, 171, 0.12);
+            border-radius: 1rem;
+            background: #fff;
+            padding: 2rem;
+            box-shadow: 0 14px 34px rgba(0, 35, 90, 0.08);
+        }
+
+        .legal-content article:first-child {
+            background: var(--color-surface-container-low);
+        }
+
+        .legal-content ul {
+            list-style: disc;
+            padding-left: 1.3rem;
+        }
+    </style>
 </BaseLayout>

@@ -7,7 +7,15 @@ import ServicePage from "../../components/sections/ServicePage.astro";
     pageTitle="Fisioterapia General"
     metaDescription="Servicio de fisioterapia general a domicilio en Cancún para aliviar dolor, recuperar movilidad y mejorar tu calidad de vida."
     shortDescription="Tratamiento personalizado para disminuir dolor, corregir patrones de movimiento y recuperar tu funcionalidad en actividades cotidianas."
-    about="La fisioterapia general está orientada a personas con molestias musculares, articulares o limitaciones de movimiento. En Gold Therapy evaluamos tu condición, diseñamos un plan terapéutico y acompañamos tu progreso para que recuperes bienestar con objetivos claros y medibles."
+    aboutIntro="La fisioterapia general está orientada a personas con dolor musculoesquelético, rigidez articular o pérdida de capacidad funcional en tareas diarias. En Gold Therapy comenzamos con una valoración clínica para identificar la causa principal del síntoma, no solo sus consecuencias. A partir de ello diseñamos un plan de intervención con objetivos medibles para que recuperes movimiento, confianza y calidad de vida en casa."
+    serviceDetails={[
+        "Valoración funcional de postura, movilidad y patrones de dolor.",
+        "Técnicas manuales para disminuir tensión y mejorar tejido blando.",
+        "Movilidad articular progresiva según tolerancia.",
+        "Ejercicio terapéutico para fuerza, control y estabilidad.",
+        "Educación para prevenir recaídas en actividades cotidianas.",
+        "Seguimiento semanal y ajustes del plan según evolución.",
+    ]}
     forYouPoints={[
         "Sientes dolor de espalda, cuello, hombro o rodilla con frecuencia.",
         "Has perdido movilidad o fuerza después de una lesión.",
@@ -15,9 +23,21 @@ import ServicePage from "../../components/sections/ServicePage.astro";
         "Buscas atención profesional en casa sin traslados innecesarios.",
     ]}
     highlights={[
-        "Evaluación funcional inicial y seguimiento semanal.",
-        "Ejercicios terapéuticos adaptados a tu nivel.",
-        "Técnicas manuales para reducir dolor y tensión.",
+        {
+            title: "Disminución del dolor en actividades diarias",
+            description:
+                "Reducimos molestias al caminar, sentarte, cargar objetos o permanecer de pie durante más tiempo.",
+        },
+        {
+            title: "Mejora de movilidad, postura y control corporal",
+            description:
+                "Optimizamos patrones de movimiento para que tu cuerpo funcione con menos compensaciones y más estabilidad.",
+        },
+        {
+            title: "Plan personalizado con seguimiento clínico",
+            description:
+                "Cada fase del tratamiento se ajusta según tu evolución para mantener avances sostenibles y medibles.",
+        },
     ]}
     heroImage="/service-1.jpg"
 />

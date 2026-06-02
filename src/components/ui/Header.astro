@@ -1,13 +1,27 @@
 ---
+interface Props {
+    variant?: "default" | "home";
+}
 
+const { variant = "default" } = Astro.props;
+
+const isHome = variant === "home";
+
+const headerClass = isHome
+    ? "absolute inset-x-0 top-0 z-50 w-full px-3 pt-3 md:px-6 md:pt-4 transition-all duration-500"
+    : "sticky top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,30,64,0.06)]";
+
+const innerClass = isHome
+    ? "flex justify-between items-center w-full px-6 lg:px-8 py-3 max-w-7xl mx-auto rounded-2xl border border-white/55 bg-[linear-gradient(180deg,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.88)_100%)] shadow-[0_16px_35px_rgba(0,35,89,0.15)] backdrop-blur-xl"
+    : "flex justify-between items-center w-full px-6 lg:px-8 py-3 max-w-7xl mx-auto";
+
+const navClass = isHome
+    ? "hidden md:flex items-center space-x-7 *:uppercase *:font-serif *:text-sm"
+    : "hidden md:flex items-center space-x-7 *:uppercase *:font-serif *:text-sm";
 ---
 
-<header
-    class="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,30,64,0.06)]"
->
-    <div
-        class="flex justify-between items-center w-full px-6 py-2 max-w-12/12 mx-auto"
-    >
+<header class={headerClass}>
+    <div class={innerClass} data-home-shell={isHome ? "true" : undefined}>
         <div class="text-xl font-bold tracking-tight text-primary-container">
             <a href="/"
                 ><img
@@ -18,20 +32,21 @@
             >
         </div>
 
-        <nav
-            class="hidden md:flex items-center space-x-8 *:uppercase *:font-serif"
-        >
-            <a class="text-secondary font-bold" href="/nosotros">Nosotros</a>
+        <nav class={navClass}>
             <a
-                class="text-black font-medium hover:text-secondary transition-colors"
+                class="text-black/80 font-semibold tracking-wide hover:text-secondary transition-colors"
+                href="/sobre-mi">Sobre Mi</a
+            >
+            <a
+                class="text-black/80 font-semibold tracking-wide hover:text-secondary transition-colors"
                 href="/servicios">Servicios</a
             >
             <a
-                class="text-black font-medium hover:text-secondary transition-colors"
+                class="text-black/80 font-semibold tracking-wide hover:text-secondary transition-colors"
                 href="/a-domicilio">a Domicilio</a
             >
             <a
-                class="text-black font-medium hover:text-secondary transition-colors"
+                class="text-black/80 font-semibold tracking-wide hover:text-secondary transition-colors"
                 href="/contacto">Contacto</a
             >
         </nav>
@@ -45,7 +60,7 @@
             </a>
             <a
                 href="https://wa.me/525500000000"
-                class="hidden lg:block bg-[#25d366] text-white px-4 py-3 lg:flex gap-2 rounded-md font-bold hover:bg-[#1ebe57] transition-colors"
+                class="hidden lg:flex items-center gap-2 rounded-full bg-secondary text-white px-5 py-2.5 font-bold shadow-[0_10px_24px_rgba(0,62,133,0.35)] hover:bg-primary-container transition-colors"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -59,9 +74,63 @@
                 >
                 AGENDAR
             </a>
-            <button class="md:hidden text-primary-container">
+            <button
+                class="md:hidden text-primary-container rounded-md p-2 hover:bg-primary/20 transition-colors"
+            >
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </div>
 </header>
+
+{
+    isHome && (
+        <script>
+            const homeHeader = document.querySelector("header") as HTMLElement | null;
+
+            const toggleHeaderScrollState = () => {
+                if (!homeHeader) return;
+
+                if (window.scrollY > 24) {
+                    homeHeader.setAttribute("data-scrolled", "true");
+                } else {
+                    homeHeader.removeAttribute("data-scrolled");
+                }
+            };
+
+            toggleHeaderScrollState();
+            window.addEventListener("scroll", toggleHeaderScrollState, {
+                passive: true,
+            });
+        </script>
+    )
+}
+
+<style>
+    header[data-scrolled="true"] {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding-top: 0.6rem;
+    }
+
+    header[data-scrolled="true"] [data-home-shell="true"] {
+        border-color: rgba(255, 255, 255, 0.75);
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.97) 0%,
+            rgba(255, 255, 255, 0.92) 100%
+        );
+        box-shadow: 0 14px 34px rgba(0, 35, 89, 0.18);
+    }
+
+    header:not([data-scrolled="true"]) [data-home-shell="true"] {
+        border-color: rgba(255, 255, 255, 0.5);
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.88) 0%,
+            rgba(255, 255, 255, 0.78) 100%
+        );
+    }
+</style>

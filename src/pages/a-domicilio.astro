@@ -13,14 +13,21 @@ const whatsappUrl = "https://wa.me/525500000000";
 >
     <Header />
 
-    <main>
+    <main class="homecare-main overflow-hidden">
         <section class="relative overflow-hidden py-24 text-white">
             <img
                 src="/hero-section.jpg"
                 alt="Rehabilitación física a domicilio en Cancún"
                 class="absolute inset-0 h-full w-full object-cover"
             />
-            <div class="absolute inset-0 bg-secondary/75"></div>
+            <div
+                class="absolute inset-0 bg-[linear-gradient(112deg,rgba(0,27,55,0.9)_6%,rgba(0,51,102,0.72)_54%,rgba(0,51,102,0.26)_100%)]"
+            >
+            </div>
+            <div
+                class="absolute -left-24 top-16 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
+            >
+            </div>
 
             <div class="relative z-10 mx-auto max-w-7xl px-6">
                 <div
@@ -68,7 +75,9 @@ const whatsappUrl = "https://wa.me/525500000000";
                     </p>
                 </article>
 
-                <article class="rounded-xl bg-surface-container-low p-8">
+                <article
+                    class="rounded-2xl border border-secondary/10 bg-surface-container-low p-8 lg:mt-8"
+                >
                     <h3 class="mb-5 text-2xl!">
                         ¿Para quién está recomendado?
                     </h3>
@@ -126,7 +135,9 @@ const whatsappUrl = "https://wa.me/525500000000";
                 </div>
 
                 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <article class="rounded-xl bg-white p-7 shadow-sm">
+                    <article
+                        class="rounded-2xl border border-secondary/12 bg-white p-7 shadow-[0_14px_34px_rgba(0,35,90,0.08)]"
+                    >
                         <h3 class="mb-3 text-xl!">
                             Comodidad y ahorro de tiempo
                         </h3>
@@ -137,7 +148,9 @@ const whatsappUrl = "https://wa.me/525500000000";
                         </p>
                     </article>
 
-                    <article class="rounded-xl bg-white p-7 shadow-sm">
+                    <article
+                        class="rounded-2xl border border-secondary/12 bg-white p-7 shadow-[0_14px_34px_rgba(0,35,90,0.08)]"
+                    >
                         <h3 class="mb-3 text-xl!">Atención personalizada</h3>
                         <p class="text-on-surface-variant">
                             Cada sesión se adapta a tu evolución clínica, tus
@@ -145,7 +158,9 @@ const whatsappUrl = "https://wa.me/525500000000";
                         </p>
                     </article>
 
-                    <article class="rounded-xl bg-white p-7 shadow-sm">
+                    <article
+                        class="rounded-2xl border border-secondary/12 bg-white p-7 shadow-[0_14px_34px_rgba(0,35,90,0.08)]"
+                    >
                         <h3 class="mb-3 text-xl!">Mayor adherencia</h3>
                         <p class="text-on-surface-variant">
                             Al facilitar el acceso al tratamiento, es más
@@ -154,7 +169,9 @@ const whatsappUrl = "https://wa.me/525500000000";
                         </p>
                     </article>
 
-                    <article class="rounded-xl bg-white p-7 shadow-sm">
+                    <article
+                        class="rounded-2xl border border-secondary/12 bg-white p-7 shadow-[0_14px_34px_rgba(0,35,90,0.08)]"
+                    >
                         <h3 class="mb-3 text-xl!">
                             Recuperación funcional real
                         </h3>
@@ -165,7 +182,9 @@ const whatsappUrl = "https://wa.me/525500000000";
                         </p>
                     </article>
 
-                    <article class="rounded-xl bg-white p-7 shadow-sm">
+                    <article
+                        class="rounded-2xl border border-secondary/12 bg-white p-7 shadow-[0_14px_34px_rgba(0,35,90,0.08)]"
+                    >
                         <h3 class="mb-3 text-xl!">Acompañamiento cercano</h3>
                         <p class="text-on-surface-variant">
                             Monitoreamos tus avances y ajustamos el plan
@@ -175,7 +194,7 @@ const whatsappUrl = "https://wa.me/525500000000";
                     </article>
 
                     <article
-                        class="rounded-xl bg-secondary p-7 text-white shadow-sm"
+                        class="rounded-2xl bg-secondary p-7 text-white shadow-[0_16px_36px_rgba(0,35,90,0.2)]"
                     >
                         <h3 class="mb-3 text-xl! text-white!">
                             Cobertura en Cancún
@@ -194,58 +213,73 @@ const whatsappUrl = "https://wa.me/525500000000";
             <div class="mx-auto max-w-7xl px-6">
                 <h2 class="mb-10">¿Cómo es nuestro proceso de atención?</h2>
 
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                    <article class="rounded-xl border border-primary/30 p-6">
-                        <p
-                            class="mb-2 text-sm font-bold uppercase tracking-wide text-primary-container"
-                        >
-                            Paso 1
-                        </p>
-                        <h3 class="mb-3 text-xl!">Valoración inicial</h3>
-                        <p class="text-on-surface-variant">
-                            Analizamos tu condición, dolor, movilidad y
-                            objetivos.
-                        </p>
-                    </article>
+                <div class="relative">
+                    <div
+                        class="pointer-events-none absolute left-8 right-8 top-8 hidden h-px bg-linear-to-r from-secondary/0 via-secondary/25 to-secondary/0 lg:block"
+                    >
+                    </div>
 
-                    <article class="rounded-xl border border-primary/30 p-6">
-                        <p
-                            class="mb-2 text-sm font-bold uppercase tracking-wide text-primary-container"
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                        <article
+                            class="relative rounded-2xl border border-secondary/12 bg-white p-6 shadow-[0_16px_40px_rgba(0,45,94,0.08)]"
                         >
-                            Paso 2
-                        </p>
-                        <h3 class="mb-3 text-xl!">Plan terapéutico</h3>
-                        <p class="text-on-surface-variant">
-                            Definimos frecuencia, técnicas y metas medibles para
-                            tu caso.
-                        </p>
-                    </article>
+                            <p
+                                class="mb-2 text-sm font-black uppercase tracking-[0.2em] text-primary-container"
+                            >
+                                01
+                            </p>
+                            <h3 class="mb-3 text-xl!">Valoración inicial</h3>
+                            <p class="text-on-surface-variant">
+                                Analizamos tu condición, dolor, movilidad y
+                                objetivos.
+                            </p>
+                        </article>
 
-                    <article class="rounded-xl border border-primary/30 p-6">
-                        <p
-                            class="mb-2 text-sm font-bold uppercase tracking-wide text-primary-container"
+                        <article
+                            class="relative rounded-2xl border border-secondary/12 bg-white p-6 shadow-[0_16px_40px_rgba(0,45,94,0.08)]"
                         >
-                            Paso 3
-                        </p>
-                        <h3 class="mb-3 text-xl!">Sesiones en casa</h3>
-                        <p class="text-on-surface-variant">
-                            Aplicamos terapia manual y ejercicio funcional en tu
-                            entorno.
-                        </p>
-                    </article>
+                            <p
+                                class="mb-2 text-sm font-black uppercase tracking-[0.2em] text-primary-container"
+                            >
+                                02
+                            </p>
+                            <h3 class="mb-3 text-xl!">Plan terapéutico</h3>
+                            <p class="text-on-surface-variant">
+                                Definimos frecuencia, técnicas y metas medibles
+                                para tu caso.
+                            </p>
+                        </article>
 
-                    <article class="rounded-xl border border-primary/30 p-6">
-                        <p
-                            class="mb-2 text-sm font-bold uppercase tracking-wide text-primary-container"
+                        <article
+                            class="relative rounded-2xl border border-secondary/12 bg-white p-6 shadow-[0_16px_40px_rgba(0,45,94,0.08)]"
                         >
-                            Paso 4
-                        </p>
-                        <h3 class="mb-3 text-xl!">Seguimiento y ajuste</h3>
-                        <p class="text-on-surface-variant">
-                            Medimos progreso y optimizamos el tratamiento según
-                            tu evolución.
-                        </p>
-                    </article>
+                            <p
+                                class="mb-2 text-sm font-black uppercase tracking-[0.2em] text-primary-container"
+                            >
+                                03
+                            </p>
+                            <h3 class="mb-3 text-xl!">Sesiones en casa</h3>
+                            <p class="text-on-surface-variant">
+                                Aplicamos terapia manual y ejercicio funcional
+                                en tu entorno.
+                            </p>
+                        </article>
+
+                        <article
+                            class="relative rounded-2xl border border-secondary/12 bg-white p-6 shadow-[0_16px_40px_rgba(0,45,94,0.08)]"
+                        >
+                            <p
+                                class="mb-2 text-sm font-black uppercase tracking-[0.2em] text-primary-container"
+                            >
+                                04
+                            </p>
+                            <h3 class="mb-3 text-xl!">Seguimiento y ajuste</h3>
+                            <p class="text-on-surface-variant">
+                                Medimos progreso y optimizamos el tratamiento
+                                según tu evolución.
+                            </p>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -290,4 +324,21 @@ const whatsappUrl = "https://wa.me/525500000000";
     </main>
 
     <Footer />
+
+    <style>
+        .homecare-main {
+            background:
+                radial-gradient(
+                    circle at 10% 12%,
+                    rgba(228, 206, 131, 0.18),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 92% 24%,
+                    rgba(30, 95, 171, 0.12),
+                    transparent 30%
+                ),
+                linear-gradient(180deg, #f7f8fb 0%, #f5f5f5 24%, #f5f5f5 100%);
+        }
+    </style>
 </BaseLayout>
