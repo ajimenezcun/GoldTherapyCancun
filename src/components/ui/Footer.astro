@@ -4,97 +4,81 @@ interface Props {
 }
 
 const { variant = "default" } = Astro.props;
-const isHome = variant === "home";
+void variant;
 
-const footerClass = isHome
-    ? "relative w-full overflow-hidden pt-24 pb-8 bg-[radial-gradient(circle_at_12%_8%,_#2f75c7_0%,_#003366_42%,_#001a33_100%)]"
-    : "bg-secondary-container w-full pt-16 pb-8";
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class={footerClass}>
-    {
-        isHome && (
-            <>
-                <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(228,206,131,0.2)_0%,rgba(228,206,131,0)_100%)]" />
-                <div class="pointer-events-none absolute -left-12 top-14 h-44 w-44 rounded-full bg-primary/18 blur-3xl" />
-            </>
-        )
-    }
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
-        <!-- Columna 1: Logo + descripción + redes -->
+<footer
+    class="w-full bg-[linear-gradient(165deg,#1E5FAB_0%,#003366_100%)] py-7"
+>
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-8 md:grid-cols-4">
+        <!-- Columna 1: Logo + descripción -->
         <div class="col-span-1">
-            <a href="/"
-                ><img
-                    src="/GoldTherapy.webp"
-                    alt="Gold Therapy"
-                    class="w-20 mb-4"
-                /></a
-            >
-            <p class="text-blue-100/70 text-sm leading-relaxed mb-8">
-                Elevando el estándar de la terapia física a través de la
-                experiencia clínica, tecnología moderna y atención
-                personalizada.
-            </p>
-            <div class="flex space-x-4">
-                <a
-                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors"
-                    href="#"
-                >
-                    <span class="material-symbols-outlined text-white text-xl"
-                        ><svg
+            <div class="flex gap-5 flex-col items-center">
+                <a href="/">
+                    <img
+                        src="/GoldTherapy.webp"
+                        alt="Gold Therapy"
+                        class="w-1/3 mx-auto md:w-2/5"
+                    />
+                </a>
+                <p class="mb-8 text-base text-center text-white/70 md:text-sm">
+                    Consultorio de terapia física en Cancún, dedicado a tu
+                    rehabilitación y bienestar.
+                </p>
+            </div>
+            <ul class="flex gap-5 justify-center">
+                <li>
+                    <a
+                        href="#"
+                        title="Facebook"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-white/60 transition-colors hover:text-white"
+                        data-social="facebook"
+                    >
+                        <svg
                             xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
                             width="24"
                             height="24"
-                            viewBox="0 0 24 24"
                             ><path
-                                fill="#ffffff"
+                                fill="#cda448"
                                 d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"
                             ></path></svg
-                        ></span
+                        >
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        title="Instagram"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-white/60 transition-colors hover:text-white"
+                        data-social="instagram"
                     >
-                </a>
-                <a
-                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors"
-                    href="#"
-                >
-                    <span class="material-symbols-outlined text-white text-xl"
-                        ><svg
+                        <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
                             viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
                             ><path
-                                fill="#ffffff"
+                                fill="#cda448"
                                 d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
                             ></path></svg
-                        ></span
-                    >
-                </a>
-                <a
-                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-colors"
-                    href="#"
-                >
-                    <span class="material-symbols-outlined text-white text-xl"
-                        ><svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            ><path
-                                fill="#ffffff"
-                                d="M12.438 2.017C13.53 2 14.613 2.008 15.696 2c.067 1.275.525 2.575 1.459 3.475c.933.925 2.25 1.35 3.533 1.492v3.358c-1.2-.042-2.408-.292-3.5-.808c-.475-.217-.917-.492-1.35-.775c-.008 2.433.008 4.866-.017 7.291a6.36 6.36 0 0 1-1.125 3.283c-1.091 1.6-2.983 2.642-4.924 2.675c-1.192.067-2.384-.258-3.4-.858c-1.684-.992-2.867-2.808-3.042-4.758a16 16 0 0 1-.008-1.242c.15-1.583.933-3.1 2.15-4.133c1.383-1.2 3.316-1.775 5.125-1.433c.016 1.233-.034 2.466-.034 3.7c-.825-.267-1.791-.192-2.516.308a2.9 2.9 0 0 0-1.134 1.458c-.175.425-.125.892-.116 1.342c.2 1.366 1.516 2.516 2.916 2.392c.934-.009 1.825-.55 2.309-1.342c.158-.275.333-.559.341-.884c.084-1.491.05-2.975.059-4.466c.008-3.358-.009-6.708.016-10.058"
-                            ></path></svg
-                        ></span
-                    >
-                </a>
-            </div>
+                        >
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <!-- Columna 2: Servicios -->
         <div>
-            <h4 class="text-primary! font-bold mb-5 uppercase">Servicios</h4>
+            <h4 class="mb-5 font-bold uppercase !text-primary">Servicios</h4>
             <ul
-                class="space-y-3 *:text-blue-100/60 *:transition-all *:hover:text-white"
+                class="space-y-3 *:text-white/60 *:transition-colors *:hover:text-white"
             >
                 <li>
                     <a href="/servicios/fisioterapia-general"
@@ -119,69 +103,69 @@ const footerClass = isHome
             </ul>
         </div>
 
-        <!-- Columna 3: Links rápidos -->
+        <!-- Columna 3: Navegación -->
         <div>
-            <h4 class="text-primary! font-bold mb-5 uppercase">Información</h4>
+            <h4 class="mb-5 font-bold uppercase !text-primary">Navegación</h4>
             <ul
-                class="space-y-3 *:text-blue-100/60 *:transition-all *:hover:text-white"
+                class="space-y-3 *:text-white/60 *:transition-colors *:hover:text-white"
             >
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/sobre-mi">Sobre Mí</a></li>
+                <li><a href="/servicios">Servicios</a></li>
                 <li>
-                    <a class="" href="/">Inicio</a>
+                    <a href="/preguntas-frecuentes">Preguntas Frecuentes</a>
                 </li>
+                <li><a href="/contacto">Contacto</a></li>
                 <li>
-                    <a class="" href="/sobre-mi">Sobre Mí</a>
-                </li>
-                <li>
-                    <a class="" href="/servicios">Servicios</a>
-                </li>
-                <li>
-                    <a class="" href="/a-domicilio">Fisioterapia a Domicilio</a>
-                </li>
-                <li>
-                    <a href="/contacto">Contacto</a>
+                    <a href="/politicas-privacidad">Política de Privacidad</a>
                 </li>
             </ul>
         </div>
 
-        <!-- Columna 4: Newsletter -->
+        <!-- Columna 4: Contacto + Legal -->
         <div>
-            <h4 class="text-primary! font-bold mb-5 uppercase">Legal</h4>
-            <ul
-                class="space-y-3 *:text-blue-100/60 *:transition-all *:hover:text-white"
-            >
+            <h4 class="mb-5 font-bold uppercase !text-primary">Contacto</h4>
+            <ul class="mb-6 space-y-3 text-white/60">
                 <li>
-                    <a class="" href="/politicas-privacidad"
-                        >Política de Privacidad</a
+                    <a
+                        class="transition-colors hover:text-white"
+                        href="tel:+529982701550">+52 998 270 1550</a
                     >
                 </li>
                 <li>
-                    <a class="" href="/terminos-servicio"
-                        >Términos de Servicio</a
+                    <a
+                        class="transition-colors hover:text-white"
+                        href="mailto:info@goldtherapy.com"
+                        >info@goldtherapy.com</a
                     >
-                </li>
-                <li>
-                    <a class="" href="/accesibilidad">Accesibilidad</a>
                 </li>
             </ul>
+            <div>
+                <h4 class="mb-5 font-bold uppercase !text-primary">ATENCIÓN</h4>
+                <ul class="text-white/60 bg-white/15 p-3 rounded-md *:py-2">
+                    <li class="border-b border-white/15">
+                        Lunes-Viernes: 9:00AM / 5:00PM
+                    </li>
+                    <li>Sábado: 10:00AM / 2:00PM</li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <!-- Barra inferior -->
     <div
-        class="max-w-7xl mx-auto px-8 mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6"
+        class="mx-auto mt-10 flex max-w-7xl flex-col items-center gap-6 border-t border-white/15 px-8 pt-8 md:flex-row md:justify-between"
     >
-        <p class="text-blue-100/50 text-xs">
-            © 2026 Gold Therapy. Todos los derechos reservados.
+        <p class="text-xs text-white/50">
+            © {currentYear} Gold Therapy Cancun. Todos los derechos reservados.
         </p>
-        <div class="flex gap-5">
-            <span class="text-blue-100/50 text-xs"
-                >Desarrollado por <a
-                    href="https://creativoapp.com"
-                    title="Creativo APP"
-                    class="text-primary font-semibold transition-colors hover:text-white"
-                    target="_blank">Creativo APP</a
-                ></span
+        <p class="text-xs text-white/50">
+            Desarrollado por <a
+                href="https://creativoapp.com"
+                title="Creativo APP | Ecommerce & Software Studio"
+                class="font-semibold text-primary transition-colors hover:text-white"
+                target="_blank">Creativo APP</a
             >
-        </div>
+        </p>
     </div>
 </footer>

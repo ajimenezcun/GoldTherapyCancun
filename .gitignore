@@ -23,7 +23,7 @@ Thumbs.db
 
 .github/
 .git/
-stitch/
+docs/
 Agent.md
 
 .agents/
