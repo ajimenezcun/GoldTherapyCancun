@@ -4,6 +4,7 @@
     /* Fuentes */
     --font-sans: "Lato", sans-serif;
     --font-serif: "Lato", sans-serif;
+    --font-display: "Plus Jakarta Sans", "Lato", sans-serif;
 
     /* Radio de borde consistente */
     --radius-lg: 8px;
@@ -83,8 +84,9 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-weight: 700;
+    letter-spacing: -0.01em;
     color: var(--color-on-background);
 }
 

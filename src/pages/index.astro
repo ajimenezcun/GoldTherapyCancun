@@ -141,10 +141,10 @@ const faqs = [
         <!-- Hero -->
         <section class="py-10">
             <div
-                class="container-page bg-[url('/hero-homepage.webp')] bg-contain bg-right bg-no-repeat py-20 flex"
+                class="container-page flex flex-col py-12 sm:py-20 md:flex-row md:bg-[url('/hero-homepage.webp')] md:bg-contain md:bg-right md:bg-no-repeat"
             >
-                <div class="w-1/2">
-                    <h1 class="text-5xl font-bold">
+                <div class="md:w-1/2" data-hero-copy>
+                    <h1 class="text-4xl sm:text-5xl">
                         Fisioterapia y Rehabilitación Física en <span
                             class="text-primary">Cancún</span
                         >
@@ -175,13 +175,19 @@ const faqs = [
                         </a>
                     </div>
                 </div>
+
+                <img
+                    src="/hero-homepage.webp"
+                    alt="Sesión de fisioterapia en Gold Therapy"
+                    class="mt-10 w-full max-w-100 self-center md:hidden"
+                />
             </div>
         </section>
 
         <!-- Servicios -->
         <section id="servicios" class="section-y">
             <div class="container-page">
-                <h2 class="text-center text-[32px]">
+                <h2 data-reveal class="text-center text-[32px]">
                     Servicios de Fisioterapia en Cancún
                 </h2>
                 <p
@@ -269,7 +275,7 @@ const faqs = [
                 </div>
 
                 <div>
-                    <h2 class="mt-3 text-[32px]">
+                    <h2 data-reveal class="mt-3 text-[32px]">
                         Un espacio pensado para tu recuperación
                     </h2>
                     <p
@@ -303,12 +309,7 @@ const faqs = [
         <!-- Proceso de atención -->
         <section id="proceso" class="section-y">
             <div class="container-page">
-                <p
-                    class="text-center text-sm font-bold uppercase tracking-widest text-primary-strong"
-                >
-                    Proceso de atención
-                </p>
-                <h2 class="mt-3 text-center text-[32px]">
+                <h2 data-reveal class="text-center text-[32px]">
                     Cómo trabajamos contigo
                 </h2>
                 <p
@@ -347,12 +348,7 @@ const faqs = [
         <!-- Testimonios -->
         <section id="testimonios" class="section-y">
             <div class="container-page">
-                <p
-                    class="text-center text-sm font-bold uppercase tracking-widest text-primary-strong"
-                >
-                    Testimonios
-                </p>
-                <h2 class="mt-3 text-center text-[32px]">
+                <h2 data-reveal class="text-center text-[32px]">
                     Lo que dicen nuestros pacientes
                 </h2>
 
@@ -391,7 +387,7 @@ const faqs = [
                 >
                     Preguntas frecuentes
                 </p>
-                <h2 class="mt-3 text-center text-[32px]">
+                <h2 data-reveal class="mt-3 text-center text-[32px]">
                     Resolvemos tus dudas
                 </h2>
 
@@ -438,6 +434,52 @@ const faqs = [
 
         <script>
             import { gsap } from "gsap";
+            import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            const reduceMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)",
+            ).matches;
+
+            if (!reduceMotion) {
+                // Entrada del hero: el título, el texto y el CTA aparecen en
+                // cascada para dar una primera impresión con más cuidado que
+                // un renderizado estático.
+                const heroCopy =
+                    document.querySelector<HTMLElement>("[data-hero-copy]");
+
+                if (heroCopy) {
+                    gsap.from(
+                        heroCopy.querySelectorAll(":scope > *"),
+                        {
+                            opacity: 0, // arrancan invisibles
+                            y: 20, // y se asientan 20px hacia arriba
+                            duration: 0.7,
+                            stagger: 0.12, // cada elemento aparece un poco después del anterior
+                            ease: "power2.out",
+                        },
+                    );
+                }
+
+                // Los títulos de cada sección se revelan al entrar en
+                // pantalla, marcando la jerarquía de contenido conforme se
+                // hace scroll en vez de mostrar todo de golpe.
+                gsap.utils
+                    .toArray<HTMLElement>("[data-reveal]")
+                    .forEach((heading) => {
+                        gsap.from(heading, {
+                            opacity: 0,
+                            y: 24,
+                            duration: 0.7,
+                            ease: "power2.out",
+                            scrollTrigger: {
+                                trigger: heading,
+                                start: "top 85%",
+                            },
+                        });
+                    });
+            }
 
             const carousel =
                 document.querySelector<HTMLDivElement>("[data-carousel]");

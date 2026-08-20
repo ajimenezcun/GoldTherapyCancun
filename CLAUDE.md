@@ -64,6 +64,9 @@ Estos patrones surgieron al iterar la sección de Servicios del homepage (rama `
   2. Título: `<h2 class="mt-3 text-center text-[32px]">`.
   3. Subtítulo/overview: `<p class="mx-auto mt-4 max-w-160 text-center text-lg leading-relaxed text-on-surface-variant">`.
 - Alterna el fondo entre secciones consecutivas con `bg-surface-container-low` para dar ritmo visual. Nunca dejes dos secciones seguidas con el mismo fondo (revisa la sección anterior y la siguiente antes de decidir).
+- **Eyebrow con moderación:** no le pongas eyebrow a cada sección — es el "tell" más común de que una página la armó una IA. Máximo ~1 eyebrow cada 3 secciones de la página completa. Si el `<h2>` ya deja claro de qué trata la sección (p. ej. "Lo que dicen nuestros pacientes"), omite el eyebrow.
+- **Tipografía de encabezados:** `h1`-`h4` usan `--font-display` (`Plus Jakarta Sans`, definida en `global.css`), no `--font-sans` (`Lato`, reservada para párrafos/cuerpo). Mantén esta separación al agregar nuevos títulos; no reintroduzcas una sola fuente para todo.
+- **Sin em-dash (`—`/`–`) en copy visible al usuario** (títulos, párrafos, botones, alt text). Usa coma, punto o guion normal (`-`).
 
 ### Cards y superficies
 - `.card` (fondo blanco + borde + `radius-lg`) es para superficies "flotantes" (testimonios, tarjeta de equipo). Si una sección necesita verse más integrada al fondo (sin caja blanca ni borde), no reutilices `.card`: arma las clases directamente y, si necesitas un separador entre items, usa `border-b` en vez de fondo/borde propio.

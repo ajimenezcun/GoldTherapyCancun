@@ -12,13 +12,14 @@ void variant;
     data-mobile-header
 >
     <div
-        class="mx-auto flex w-full max-w-295 items-center justify-between rounded-lg bg-white px-6 py-2 border border-gray-100"
+        class="mx-auto flex w-full max-w-295 items-center justify-between rounded-lg bg-white px-6 py-2 border border-gray-100 transition-shadow"
+        data-header-bar
     >
         <a href="/" class="shrink-0">
             <img
                 src="/GoldTherapy.webp"
                 alt="Gold Therapy"
-                class="h-22 w-auto"
+                class="h-14 w-auto"
             />
         </a>
 
@@ -46,7 +47,7 @@ void variant;
 
             <a
                 href="https://wa.me/529982701550?text=Hola%2C%20quiero%20agendar%20una%20cita"
-                class="flex items-center gap-2 rounded-md bg-secondary px-5 py-3 text-base font-bold uppercase tracking-wide text-white transition-all hover:translate-y-[-2px] hover:shadow-lg"
+                class="flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-base font-bold uppercase tracking-wide text-on-primary transition-all hover:bg-primary-strong hover:translate-y-[-2px] hover:shadow-lg"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -178,6 +179,33 @@ void variant;
 </header>
 
 <script>
+    // Da retroalimentación visual de que la página se desplazó: la barra
+    // gana una sombra sutil en vez de quedar plana sobre el contenido.
+    const headerBar =
+        document.querySelector<HTMLDivElement>("[data-header-bar]");
+
+    if (headerBar) {
+        let ticking = false;
+
+        const updateHeaderShadow = () => {
+            headerBar.classList.toggle("shadow-md", window.scrollY > 8);
+            ticking = false;
+        };
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateHeaderShadow);
+                    ticking = true;
+                }
+            },
+            { passive: true },
+        );
+
+        updateHeaderShadow();
+    }
+
     const mobileHeader = document.querySelector("[data-mobile-header]");
 
     if (mobileHeader) {

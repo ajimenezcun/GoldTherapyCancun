@@ -27,4 +27,5 @@ docs/
 Agent.md
 
 .agents/
+.claude/
 skills-lock.json
