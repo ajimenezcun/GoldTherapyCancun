@@ -11,31 +11,31 @@ const services = [
         image: "/service-1.jpg",
         title: "Fisioterapia General",
         description:
-            "Evaluación y tratamiento de molestias musculares y articulares del día a día.",
+            "Evaluación y tratamiento de molestias musculares y articulares del día a día, desde dolor de espalda hasta contracturas y lesiones leves. Diseñamos un plan a tu medida para que recuperes movilidad sin dolor y previengas recaídas a futuro.",
     },
     {
         image: "/service-2.jpg",
         title: "Rehabilitación Postoperatoria",
         description:
-            "Recuperación guiada tras cirugías, con protocolos personalizados por etapa.",
+            "Recuperación guiada tras cirugías ortopédicas, traumatológicas o articulares, con protocolos personalizados por etapa. Acompañamos cada avance de cerca, ajustando el tratamiento conforme tu cuerpo va sanando.",
     },
     {
         image: "/service-3.jpg",
         title: "Fisioterapia Deportiva",
         description:
-            "Prevención y tratamiento de lesiones para deportistas de todos los niveles.",
+            "Prevención y tratamiento de lesiones para deportistas de todos los niveles, con enfoque en fuerza, movilidad y prevención de recaídas. Te ayudamos a volver a tu actividad física con confianza y sin miedo a lesionarte de nuevo.",
     },
     {
         image: "/service-4.jpg",
         title: "Fisioterapia Neurológica",
         description:
-            "Terapia especializada para condiciones que afectan el sistema nervioso.",
+            "Terapia especializada para condiciones que afectan el sistema nervioso, como secuelas de EVC, esclerosis múltiple o lesiones medulares. Trabajamos en la recuperación funcional con ejercicios adaptados a cada caso.",
     },
     {
         image: "/service-5.jpg",
         title: "Rehabilitación Física",
         description:
-            "Recuperación de movilidad, fuerza y funcionalidad a tu propio ritmo.",
+            "Recuperación de movilidad, fuerza y funcionalidad a tu propio ritmo, ideal para procesos de larga duración o condiciones crónicas. Combinamos técnica manual y ejercicio terapéutico para resultados sostenibles.",
     },
 ];
 
@@ -58,6 +58,29 @@ const values = [
     },
 ];
 
+const careSteps = [
+    {
+        title: "Evaluación inicial",
+        description:
+            "Valoramos tu caso a fondo: historial, movilidad y origen del dolor, para entender qué lo está causando.",
+    },
+    {
+        title: "Plan de tratamiento",
+        description:
+            "Diseñamos un programa personalizado con objetivos claros y un estimado de sesiones para tu recuperación.",
+    },
+    {
+        title: "Seguimiento terapéutico",
+        description:
+            "Sesión a sesión ajustamos el tratamiento según tu evolución, siempre con el mismo terapeuta acompañándote.",
+    },
+    {
+        title: "Alta médica",
+        description:
+            "Evaluamos tu recuperación y te compartimos indicaciones para mantener resultados y prevenir recaídas.",
+    },
+];
+
 const testimonials = [
     {
         quote: "Después de mi cirugía de rodilla llegué con miedo a moverme. El seguimiento fue muy cuidadoso y hoy camino sin dolor.",
@@ -70,6 +93,18 @@ const testimonials = [
     {
         quote: "Un espacio limpio y tranquilo, justo lo que necesitaba para mi recuperación deportiva.",
         name: "Fernando L.",
+    },
+    {
+        quote: "Llevo años con dolor de cuello por el trabajo de oficina y en pocas sesiones noté una mejora real. Siempre me explican qué estamos trabajando y por qué.",
+        name: "Patricia G.",
+    },
+    {
+        quote: "El trato humano hace toda la diferencia. Me sentí escuchado desde la primera consulta y el plan se fue ajustando a mi ritmo.",
+        name: "Jorge N.",
+    },
+    {
+        quote: "Vine buscando ayuda para una lesión de hombro que arrastraba desde hace meses. Hoy entreno de nuevo sin molestias.",
+        name: "Daniela R.",
     },
 ];
 
@@ -147,24 +182,58 @@ const faqs = [
         <section id="servicios" class="section-y">
             <div class="container-page">
                 <h2 class="text-center text-[32px]">
-                    <span class="text-primary">Servicios</span> de Fisioterapia en
-                    Cancún
+                    Servicios de Fisioterapia en Cancún
                 </h2>
+                <p
+                    class="mx-auto mt-4 max-w-160 text-center text-lg leading-relaxed text-on-surface-variant"
+                >
+                    Un plan de tratamiento distinto para cada necesidad, con
+                    técnicas basadas en evidencia y seguimiento cercano en cada
+                    sesión.
+                </p>
 
-                <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="mt-14 flex flex-col">
                     {
-                        services.map((service) => (
-                            <article class="card overflow-hidden">
-                                <img
-                                    src={service.image}
-                                    alt={service.title}
-                                    class="h-45 w-full object-cover"
-                                />
-                                <div class="p-6">
+                        services.map((service, index) => (
+                            <article
+                                class:list={[
+                                    "group flex flex-col py-8 transition-all sm:flex-row",
+                                    index !== services.length - 1 &&
+                                        "border-b border-gray-200",
+                                ]}
+                            >
+                                <div class="overflow-hidden sm:w-2/5 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_75%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_75%)]">
+                                    <img
+                                        src={service.image}
+                                        alt={service.title}
+                                        class="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105 sm:h-full"
+                                    />
+                                </div>
+                                <div class="flex flex-1 flex-col justify-center p-8">
                                     <h3 class="text-xl">{service.title}</h3>
-                                    <p class="mt-2 text-on-surface-variant">
+                                    <p class="mt-3 leading-relaxed text-on-surface-variant">
                                         {service.description}
                                     </p>
+                                    <a
+                                        href={whatsappHref}
+                                        class="mt-5 flex w-fit items-center gap-1 font-bold text-primary-strong transition-all hover:gap-2"
+                                    >
+                                        Saber más
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            width="18"
+                                            height="18"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <path d="M5 12h14" />
+                                            <path d="m12 5 7 7-7 7" />
+                                        </svg>
+                                    </a>
                                 </div>
                             </article>
                         ))
@@ -200,11 +269,6 @@ const faqs = [
                 </div>
 
                 <div>
-                    <p
-                        class="text-sm font-bold uppercase tracking-widest text-primary-strong"
-                    >
-                        Sobre nosotros
-                    </p>
                     <h2 class="mt-3 text-[32px]">
                         Un espacio pensado para tu recuperación
                     </h2>
@@ -236,6 +300,50 @@ const faqs = [
             </div>
         </section>
 
+        <!-- Proceso de atención -->
+        <section id="proceso" class="section-y">
+            <div class="container-page">
+                <p
+                    class="text-center text-sm font-bold uppercase tracking-widest text-primary-strong"
+                >
+                    Proceso de atención
+                </p>
+                <h2 class="mt-3 text-center text-[32px]">
+                    Cómo trabajamos contigo
+                </h2>
+                <p
+                    class="mx-auto mt-4 max-w-160 text-center text-lg leading-relaxed text-on-surface-variant"
+                >
+                    Desde tu primer mensaje hasta tu alta médica, te acompañamos
+                    con un proceso claro en cada etapa de tu recuperación.
+                </p>
+
+                <div class="relative mt-16">
+                    <div
+                        class="absolute left-6 top-6 bottom-6 w-0.5 bg-primary/25 lg:left-0 lg:right-0 lg:top-6 lg:bottom-auto lg:h-0.5 lg:w-auto"
+                    >
+                    </div>
+                    <div class="relative grid gap-10 lg:grid-cols-4 lg:gap-6">
+                        {
+                            careSteps.map((step, index) => (
+                                <div class="relative flex items-start gap-5 lg:flex-col lg:items-center lg:gap-0 lg:text-center">
+                                    <span class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-on-primary">
+                                        {index + 1}
+                                    </span>
+                                    <div class="lg:mt-5">
+                                        <h3 class="text-lg">{step.title}</h3>
+                                        <p class="mt-2 text-base leading-relaxed text-on-surface-variant">
+                                            {step.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Testimonios -->
         <section id="testimonios" class="section-y">
             <div class="container-page">
@@ -248,20 +356,29 @@ const faqs = [
                     Lo que dicen nuestros pacientes
                 </h2>
 
-                <div class="mt-14 grid gap-5 lg:grid-cols-3">
-                    {
-                        testimonials.map((testimonial) => (
-                            <article class="card p-8">
-                                <p class="font-serif text-5xl leading-none text-primary">
-                                    “
-                                </p>
-                                <p class="mt-2 text-lg leading-relaxed text-on-surface">
-                                    {testimonial.quote}
-                                </p>
-                                <p class="mt-6 font-bold">{testimonial.name}</p>
-                            </article>
-                        ))
-                    }
+                <div
+                    data-carousel
+                    class="relative mt-14 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]"
+                >
+                    <div data-carousel-track class="flex w-max gap-5">
+                        {
+                            [...testimonials, ...testimonials].map(
+                                (testimonial) => (
+                                    <article class="card w-80 shrink-0 p-5 sm:w-96">
+                                        <p class="font-serif text-3xl leading-none text-primary">
+                                            “
+                                        </p>
+                                        <p class="mt-2 leading-relaxed text-on-surface-variant">
+                                            {testimonial.quote}
+                                        </p>
+                                        <p class="mt-5 text-lg font-bold">
+                                            {testimonial.name}
+                                        </p>
+                                    </article>
+                                ),
+                            )
+                        }
+                    </div>
                 </div>
             </div>
         </section>
@@ -320,6 +437,34 @@ const faqs = [
         </section>
 
         <script>
+            import { gsap } from "gsap";
+
+            const carousel =
+                document.querySelector<HTMLDivElement>("[data-carousel]");
+            const track = document.querySelector<HTMLDivElement>(
+                "[data-carousel-track]",
+            );
+
+            if (carousel && track) {
+                // La pista se duplicó en el markup, así que la mitad de su
+                // ancho es un ciclo completo del carrusel.
+                const cycleDistance = track.scrollWidth / 2;
+
+                const marquee = gsap.to(track, {
+                    x: -cycleDistance, // desplaza la pista un ciclo completo hacia la izquierda
+                    duration: cycleDistance / 40, // velocidad constante (~40px/s)
+                    ease: "none", // movimiento lineal, sin aceleración
+                    repeat: -1, // se repite infinitamente
+                });
+
+                carousel.addEventListener("mouseenter", () =>
+                    marquee.pause(),
+                );
+                carousel.addEventListener("mouseleave", () =>
+                    marquee.play(),
+                );
+            }
+
             const triggers =
                 document.querySelectorAll<HTMLButtonElement>(
                     "[data-faq-trigger]",
