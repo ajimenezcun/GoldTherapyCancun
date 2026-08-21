@@ -216,13 +216,15 @@ const faqs = [
                                     />
                                 </div>
                                 <div class="flex flex-1 flex-col justify-center p-8">
-                                    <h3 class="text-xl">{service.title}</h3>
+                                    <h3 class="text-xl !text-primary">
+                                        {service.title}
+                                    </h3>
                                     <p class="mt-3 leading-relaxed text-on-surface-variant">
                                         {service.description}
                                     </p>
                                     <a
                                         href={whatsappHref}
-                                        class="mt-5 flex w-fit items-center gap-1 font-bold text-primary-strong transition-all hover:gap-2"
+                                        class="mt-5 flex w-fit items-center gap-1 font-bold text-secondary transition-all hover:gap-2"
                                     >
                                         Saber más
                                         <svg
@@ -291,7 +293,7 @@ const faqs = [
                         {
                             values.map((value) => (
                                 <div class="flex gap-3">
-                                    <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-primary" />
+                                    <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-secondary" />
                                     <div>
                                         <p class="font-bold">{value.title}</p>
                                         <p class="mt-1 text-on-surface-variant">
@@ -321,18 +323,20 @@ const faqs = [
 
                 <div class="relative mt-16">
                     <div
-                        class="absolute left-6 top-6 bottom-6 w-0.5 bg-primary/25 lg:left-0 lg:right-0 lg:top-6 lg:bottom-auto lg:h-0.5 lg:w-auto"
+                        class="absolute left-6 top-6 bottom-6 w-0.5 bg-secondary/25 lg:left-0 lg:right-0 lg:top-6 lg:bottom-auto lg:h-0.5 lg:w-auto"
                     >
                     </div>
                     <div class="relative grid gap-10 lg:grid-cols-4 lg:gap-6">
                         {
                             careSteps.map((step, index) => (
                                 <div class="relative flex items-start gap-5 lg:flex-col lg:items-center lg:gap-0 lg:text-center">
-                                    <span class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary font-bold text-on-primary">
+                                    <span class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary font-bold text-white">
                                         {index + 1}
                                     </span>
                                     <div class="lg:mt-5">
-                                        <h3 class="text-lg">{step.title}</h3>
+                                        <h3 class="!text-xl !text-primary">
+                                            {step.title}
+                                        </h3>
                                         <p class="mt-2 text-base leading-relaxed text-on-surface-variant">
                                             {step.description}
                                         </p>
@@ -450,16 +454,13 @@ const faqs = [
                     document.querySelector<HTMLElement>("[data-hero-copy]");
 
                 if (heroCopy) {
-                    gsap.from(
-                        heroCopy.querySelectorAll(":scope > *"),
-                        {
-                            opacity: 0, // arrancan invisibles
-                            y: 20, // y se asientan 20px hacia arriba
-                            duration: 0.7,
-                            stagger: 0.12, // cada elemento aparece un poco después del anterior
-                            ease: "power2.out",
-                        },
-                    );
+                    gsap.from(heroCopy.querySelectorAll(":scope > *"), {
+                        opacity: 0, // arrancan invisibles
+                        y: 20, // y se asientan 20px hacia arriba
+                        duration: 0.7,
+                        stagger: 0.12, // cada elemento aparece un poco después del anterior
+                        ease: "power2.out",
+                    });
                 }
 
                 // Los títulos de cada sección se revelan al entrar en
@@ -499,12 +500,8 @@ const faqs = [
                     repeat: -1, // se repite infinitamente
                 });
 
-                carousel.addEventListener("mouseenter", () =>
-                    marquee.pause(),
-                );
-                carousel.addEventListener("mouseleave", () =>
-                    marquee.play(),
-                );
+                carousel.addEventListener("mouseenter", () => marquee.pause());
+                carousel.addEventListener("mouseleave", () => marquee.play());
             }
 
             const triggers =

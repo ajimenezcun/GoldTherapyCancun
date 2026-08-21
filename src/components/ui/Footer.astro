@@ -10,9 +10,11 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-    class="w-full bg-[linear-gradient(165deg,var(--color-secondary)_0%,var(--color-tertiary)_100%)] py-7"
+    class="relative w-full overflow-hidden bg-secondary border-t-3 border-primary py-7"
 >
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-8 md:grid-cols-4">
+    <div
+        class="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-8 md:grid-cols-4"
+    >
         <!-- Columna 1: Logo + descripción -->
         <div class="col-span-1">
             <div class="flex gap-5 flex-col items-center">
@@ -141,10 +143,10 @@ const currentYear = new Date().getFullYear();
                 </li>
             </ul>
             <div>
-                <h4 class="mb-5 font-bold uppercase !text-primary">
-                    Horario
-                </h4>
-                <ul class="text-white/60 bg-white/15 p-3 rounded-md *:py-2">
+                <h4 class="mb-5 font-bold uppercase !text-primary">Horario</h4>
+                <ul
+                    class="rounded-md border border-white/10 bg-white/10 p-3 text-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] *:py-2"
+                >
                     <li class="border-b border-white/15">
                         Lunes-Viernes: 9:00AM / 5:00PM
                     </li>
@@ -156,7 +158,7 @@ const currentYear = new Date().getFullYear();
 
     <!-- Barra inferior -->
     <div
-        class="mx-auto mt-10 flex max-w-7xl flex-col items-center gap-6 border-t border-white/15 px-8 pt-8 md:flex-row md:justify-between"
+        class="relative mx-auto mt-10 flex max-w-7xl flex-col items-center gap-6 border-t border-white/15 px-8 pt-8 md:flex-row md:justify-between"
     >
         <p class="text-xs text-white/50">
             © {currentYear} Gold Therapy Cancun. Todos los derechos reservados.
