@@ -141,9 +141,9 @@ const faqs = [
         <!-- Hero -->
         <section class="py-10">
             <div
-                class="container-page flex flex-col py-12 sm:py-20 md:flex-row md:bg-[url('/hero-homepage.webp')] md:bg-contain md:bg-right md:bg-no-repeat"
+                class="container-page flex flex-col relative py-12 sm:py-20 md:flex-row md:bg-[url('/hero-homepage.webp')] md:bg-contain md:bg-right md:bg-no-repeat"
             >
-                <div class="md:w-1/2" data-hero-copy>
+                <div class="relative z-20 md:w-1/2" data-hero-copy>
                     <h1 class="text-4xl sm:text-5xl">
                         Fisioterapia y Rehabilitación Física en <span
                             class="text-primary">Cancún</span
@@ -179,7 +179,7 @@ const faqs = [
                 <img
                     src="/hero-homepage.webp"
                     alt="Sesión de fisioterapia en Gold Therapy"
-                    class="mt-10 w-full max-w-100 self-center md:hidden"
+                    class="absolute bottom-0 z-10 w-full md:hidden"
                 />
             </div>
         </section>
@@ -216,15 +216,15 @@ const faqs = [
                                     />
                                 </div>
                                 <div class="flex flex-1 flex-col justify-center p-8">
-                                    <h3 class="text-xl !text-primary">
+                                    <h3 class="text-xl !text-primary text-center md:text-left">
                                         {service.title}
                                     </h3>
-                                    <p class="mt-3 leading-relaxed text-on-surface-variant">
+                                    <p class="mt-3 leading-relaxed text-on-surface-variant text-center md:text-left">
                                         {service.description}
                                     </p>
                                     <a
                                         href={whatsappHref}
-                                        class="mt-5 flex w-fit items-center gap-1 font-bold text-secondary transition-all hover:gap-2"
+                                        class="mt-5 flex w-fit mx-auto md:mx-0 items-center gap-1 font-bold text-secondary transition-all hover:gap-2"
                                     >
                                         Saber más
                                         <svg
@@ -323,14 +323,14 @@ const faqs = [
 
                 <div class="relative mt-16">
                     <div
-                        class="absolute left-6 top-6 bottom-6 w-0.5 bg-secondary/25 lg:left-0 lg:right-0 lg:top-6 lg:bottom-auto lg:h-0.5 lg:w-auto"
+                        class="absolute left-5 top-6 bottom-6 w-0.5 bg-secondary/25 lg:left-0 lg:right-0 lg:top-6 lg:bottom-auto lg:h-0.5 lg:w-auto"
                     >
                     </div>
                     <div class="relative grid gap-10 lg:grid-cols-4 lg:gap-6">
                         {
                             careSteps.map((step, index) => (
                                 <div class="relative flex items-start gap-5 lg:flex-col lg:items-center lg:gap-0 lg:text-center">
-                                    <span class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary font-bold text-white">
+                                    <span class="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary font-bold text-white">
                                         {index + 1}
                                     </span>
                                     <div class="lg:mt-5">
@@ -364,7 +364,7 @@ const faqs = [
                         {
                             [...testimonials, ...testimonials].map(
                                 (testimonial) => (
-                                    <article class="card w-80 shrink-0 p-5 sm:w-96">
+                                    <article class="card w-64 shrink-0 p-5 sm:w-72 md:w-90">
                                         <p class="font-serif text-3xl leading-none text-primary">
                                             “
                                         </p>
