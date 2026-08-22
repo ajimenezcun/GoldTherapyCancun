@@ -12,49 +12,16 @@ const whatsappUrl = "https://wa.me/525500000000";
 >
     <Header />
 
-    <main class="legal-main overflow-hidden">
-        <section class="relative overflow-hidden py-24 text-white">
-            <img
-                src="/hero-section.jpg"
-                alt="Políticas de Privacidad"
-                class="absolute inset-0 h-full w-full object-cover"
-            />
-            <div
-                class="absolute inset-0 bg-[linear-gradient(112deg,rgba(0,27,55,0.9)_6%,rgba(0,51,102,0.72)_54%,rgba(0,51,102,0.26)_100%)]"
-            >
-            </div>
-            <div
-                class="absolute -left-24 top-16 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
-            >
-            </div>
-
-            <div class="relative z-10 mx-auto max-w-7xl px-6">
-                <div
-                    class="mb-5 flex flex-wrap items-center gap-2 text-sm font-semibold text-white/90"
-                >
-                    <a href="/" class="transition-colors hover:text-primary"
-                        >Inicio</a
-                    >
-                    <span aria-hidden="true">/</span>
-                    <span class="text-primary">Políticas de Privacidad</span>
-                </div>
-
-                <h1 class="max-w-4xl text-white!">Políticas de Privacidad</h1>
-                <p
-                    class="mt-5 max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl"
-                >
+    <main class="overflow-hidden">
+        <section class="py-20 container-page">
+            <div class="legal-content space-y-6">
+                <h1>Políticas de Privacidad</h1>
+                <p class="mb-10 text-lg leading-relaxedmd:text-xl">
                     En Gold Therapy protegemos la información personal de
                     nuestros pacientes y visitantes. Este documento explica cómo
                     recopilamos, usamos y resguardamos tus datos.
                 </p>
-            </div>
-        </section>
-
-        <section class="bg-white py-20">
-            <div
-                class="legal-content mx-auto max-w-4xl space-y-6 px-6 text-on-surface-variant"
-            >
-                <article class="rounded-xl bg-surface-container-low p-8">
+                <article>
                     <h2 class="mb-4 text-3xl!">
                         1. Responsable del tratamiento
                     </h2>
@@ -154,74 +121,12 @@ const whatsappUrl = "https://wa.me/525500000000";
                     <p
                         class="mt-4 text-sm font-semibold uppercase tracking-wide text-primary-container"
                     >
-                        Última actualización: 26 de mayo de 2026
+                        Última actualización: 22 de Agosto del 2026
                     </p>
-                </article>
-            </div>
-        </section>
-
-        <section class="bg-surface py-16">
-            <div class="mx-auto grid max-w-5xl gap-6 px-6 md:grid-cols-2">
-                <article
-                    class="rounded-lg border border-secondary/12 bg-white p-7"
-                >
-                    <h3 class="mb-3 text-2xl!">Contacto de privacidad</h3>
-                    <p class="text-on-surface-variant">
-                        Para dudas sobre esta política o sobre tus datos
-                        personales, contáctanos por WhatsApp o teléfono.
-                    </p>
-                </article>
-
-                <article
-                    class="rounded-lg bg-secondary p-7 text-white"
-                >
-                    <h3 class="mb-4 text-2xl! text-white!">Atención directa</h3>
-                    <a
-                        href={whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex rounded-xl bg-[#25d366] px-6 py-3 font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#1ebe57]"
-                    >
-                        Escribir por WhatsApp
-                    </a>
                 </article>
             </div>
         </section>
     </main>
 
     <Footer />
-
-    <style>
-        .legal-main {
-            background:
-                radial-gradient(
-                    circle at 10% 12%,
-                    rgba(228, 206, 131, 0.18),
-                    transparent 32%
-                ),
-                radial-gradient(
-                    circle at 92% 24%,
-                    rgba(30, 95, 171, 0.12),
-                    transparent 30%
-                ),
-                linear-gradient(180deg, #f7f8fb 0%, #f5f5f5 24%, #f5f5f5 100%);
-        }
-
-        .legal-content article {
-            border: 1px solid rgba(30, 95, 171, 0.12);
-            border-radius: 1rem;
-            background: #fff;
-            padding: 2rem;
-            box-shadow: 0 14px 34px rgba(0, 35, 90, 0.08);
-        }
-
-        .legal-content article:first-child {
-            background: var(--color-surface-container-low);
-        }
-
-        .legal-content ul {
-            list-style: disc;
-            padding-left: 1.3rem;
-        }
-    </style>
 </BaseLayout>
