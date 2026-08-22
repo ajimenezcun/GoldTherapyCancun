@@ -2,450 +2,254 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/ui/Header.astro";
 import Footer from "../components/ui/Footer.astro";
-import ServicesCarousel from "../components/sections/ServicesCarousel.astro";
+
+const whatsappUrl =
+    "https://wa.me/529982701550?text=Hola%2C%20quiero%20agendar%20una%20cita";
+
+const values = [
+    {
+        title: "Evaluación inicial detallada",
+        description:
+            "Revisamos historial, movilidad y origen del dolor antes de proponer un plan.",
+    },
+    {
+        title: "Seguimiento por objetivos funcionales",
+        description:
+            "Ajustamos cada sesión según tu evolución real, no un protocolo genérico.",
+    },
+    {
+        title: "Atención personalizada",
+        description:
+            "Trabajamos 1:1 contigo, sin lotes de pacientes ni prisas entre sesiones.",
+    },
+    {
+        title: "Mismo terapeuta, siempre",
+        description:
+            "Gold Therapy opera con un solo terapeuta para mantener cercanía y consistencia.",
+    },
+];
+
+const studies = [
+    {
+        title: "Licenciatura en Fisioterapia",
+        institution: "Universidad de Ciencias de la Salud",
+        year: "2016",
+        description:
+            "Formación clínica integral en evaluación funcional, terapia manual y rehabilitación musculoesquelética.",
+    },
+    {
+        title: "Certificación en Rehabilitación Postoperatoria",
+        institution: "Colegio Mexicano de Fisioterapia",
+        year: "2019",
+        description:
+            "Protocolos de recuperación segura para pacientes ortopédicos y funcionales en fases tempranas y avanzadas.",
+    },
+    {
+        title: "Diplomado en Fisioterapia Deportiva",
+        institution: "Instituto de Ciencias del Deporte",
+        year: "2021",
+        description:
+            "Prevención de lesiones, readaptación al entrenamiento y estrategias de retorno progresivo al deporte.",
+    },
+    {
+        title: "Actualización en Neurorehabilitación",
+        institution: "Asociación Latinoamericana de Rehabilitación",
+        year: "2024",
+        description:
+            "Intervenciones terapéuticas para mejorar equilibrio, coordinación y autonomía en pacientes neurológicos.",
+    },
+];
+
+const services = [
+    {
+        image: "/service-1.jpg",
+        title: "Fisioterapia General",
+        description:
+            "Evaluación y tratamiento de molestias musculares y articulares del día a día, desde dolor de espalda hasta contracturas y lesiones leves. Diseñamos un plan a tu medida para que recuperes movilidad sin dolor y previengas recaídas a futuro.",
+    },
+    {
+        image: "/service-2.jpg",
+        title: "Rehabilitación Postoperatoria",
+        description:
+            "Recuperación guiada tras cirugías ortopédicas, traumatológicas o articulares, con protocolos personalizados por etapa. Acompañamos cada avance de cerca, ajustando el tratamiento conforme tu cuerpo va sanando.",
+    },
+    {
+        image: "/service-3.jpg",
+        title: "Fisioterapia Deportiva",
+        description:
+            "Prevención y tratamiento de lesiones para deportistas de todos los niveles, con enfoque en fuerza, movilidad y prevención de recaídas. Te ayudamos a volver a tu actividad física con confianza y sin miedo a lesionarte de nuevo.",
+    },
+    {
+        image: "/service-4.jpg",
+        title: "Fisioterapia Neurológica",
+        description:
+            "Terapia especializada para condiciones que afectan el sistema nervioso, como secuelas de EVC, esclerosis múltiple o lesiones medulares. Trabajamos en la recuperación funcional con ejercicios adaptados a cada caso.",
+    },
+    {
+        image: "/service-5.jpg",
+        title: "Rehabilitación Física",
+        description:
+            "Recuperación de movilidad, fuerza y funcionalidad a tu propio ritmo, ideal para procesos de larga duración o condiciones crónicas. Combinamos técnica manual y ejercicio terapéutico para resultados sostenibles.",
+    },
+];
 ---
 
-<BaseLayout title="Acerca de Gold Therapy - Fisioterapia a Domicilio en Cancún">
+<BaseLayout
+    title="Nosotros | Gold Therapy Cancún"
+    description="Conoce a Gold Therapy: formación, certificaciones y enfoque de atención de nuestra terapia física en Cancún."
+>
     <Header />
 
-    <main>
-        <section
-            class="relative py-10 bg-cover bg-center flex items-center justify-center text-center text-white"
-            style="background-image: url('/hero-section.jpg')"
-        >
-            <div class="absolute inset-0 bg-black/20"></div>
-            <div class="relative z-10 max-w-3xl px-6">
-                <h1 class="mb-2">Sobre Nosotros</h1>
-                <div
-                    class="text-black font-semibold flex items-center justify-center gap-2 mb-6"
+    <main class="overflow-hidden">
+        <!-- Hero -->
+        <section class="py-20">
+            <div class="container-page relative z-10">
+                <h1 class="block text-center">
+                    Conoce a <span class="text-primary">Gold Therapy</span>
+                </h1>
+                <p
+                    class="mt-5 text-center mx-auto max-w-2/3 text-lg leading-relaxed md:text-xl"
                 >
-                    <a href="/" class="hover:underline">Gold Therapy</a>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        ><path
-                            fill="none"
-                            stroke="#000000"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                            d="M15 4L8 20"></path></svg
-                    >
-                    <span class="text-secondary">Sobre Nosotros</span>
-                </div>
-                <p class="text-lg md:text-xl">
-                    En Gold Therapy, nos apasiona ayudarte a recuperar tu
-                    bienestar desde la comodidad de tu hogar. Con años de
-                    experiencia en fisioterapia, nuestro equipo se dedica a
-                    ofrecer tratamientos personalizados que transforman vidas.
+                    <span class="text-primary font-bold italic"
+                        >Gold Therapy</span
+                    >, es un espacio de <b>Fisioterapia en Cancún</b> dedicado a ayudarte
+                    a recuperar movilidad, reducir el dolor y mejorar tu calidad de
+                    vida con atención personalizada.
                 </p>
+
+                <div>
+                    <video
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        class="mt-10 w-full rounded-lg"
+                    >
+                        <source src="/nosotros.mp4" type="video/mp4" />
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
+                </div>
             </div>
         </section>
-        <section class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex gap-10 justify-between">
-                    <div class="w-2/5">
+
+        <!-- Quiénes somos -->
+        <section class="section-y bg-white">
+            <div
+                class="container-page grid gap-16 lg:grid-cols-[1fr_2fr] lg:items-center"
+            >
+                <div class="relative">
+                    <div class="aspect-3/4 overflow-hidden rounded-lg">
                         <img
-                            alt="Fisioterapia a domicilio en Cancún"
-                            class="w-full h-full object-cover rounded-lg"
-                            src="/about-doctor.jpg"
+                            src="/the-doctor.webp"
+                            alt="Mariana, terapeuta de Gold Therapy"
+                            class="h-full w-full object-cover"
                         />
                     </div>
+                </div>
 
-                    <div class="w-3/5 py-5">
-                        <h2 class="mb-2">Hola, Soy Mariana</h2>
-                        <h3
-                            class="uppercase !text-gray-400 !text-lg !font-semibold mb-7"
-                        >
-                            Licenciada en Fisioterapia
-                        </h3>
-                        <p class="mb-5">
-                            Con años de experiencia en fisioterapia, me dedico a
-                            ofrecer tratamientos personalizados que transforman
-                            vidas. Mi enfoque se basa en la atención integral,
-                            combinando técnicas avanzadas con un toque humano
-                            para ayudarte a alcanzar tus objetivos de salud y
-                            bienestar.
-                        </p>
-                        <p class="mb-5">
-                            Mi objetivo es brindarte una experiencia de
-                            fisioterapia que no solo trate tus síntomas, sino
-                            que también promueva tu bienestar general. Estoy
-                            comprometida a proporcionarte el mejor cuidado
-                            posible, adaptando cada sesión a tus necesidades
-                            individuales y asegurándome de que te sientas
-                            apoyado en cada paso de tu recuperación.
-                        </p>
-                        <p>
-                            Si estas buscando una fisioterapeuta dedicada,
-                            profesional y apasionada en Cancún, estoy aquí para
-                            ayudarte a recuperar tu bienestar desde la comodidad
-                            de tu hogar.
-                        </p>
+                <div>
+                    <h2 data-reveal class="mt-3 text-[32px]">
+                        ¿Quiénes somos?
+                    </h2>
+                    <p
+                        class="mt-5 text-lg leading-relaxed text-on-surface-variant"
+                    >
+                        Trabajamos de manera individual con cada paciente para
+                        diseñar procesos de recuperación realistas y medibles.
+                        Nuestro enfoque combina precisión clínica, empatía y
+                        seguimiento continuo para que cada sesión tenga un
+                        objetivo claro.
+                    </p>
+                    <p
+                        class="mt-4 text-lg leading-relaxed text-on-surface-variant"
+                    >
+                        Actualmente, Gold Therapy opera con un solo terapeuta
+                        para mantener un estándar alto de calidad, cercanía y
+                        consistencia en cada tratamiento a domicilio.
+                    </p>
+
+                    <div class="mt-10 grid gap-8 sm:grid-cols-2">
+                        {
+                            values.map((value) => (
+                                <div class="flex gap-3">
+                                    <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-secondary" />
+                                    <div>
+                                        <p class="font-bold">{value.title}</p>
+                                        <p class="mt-1 text-on-surface-variant">
+                                            {value.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
         </section>
-        <section class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-6 text-center mb-16">
-                <h2 class="mb-3">Terapia Física a Domicilio en Cancún</h2>
-                <p class="max-w-10/12 mx-auto text-lg">
-                    Ofrecemos una amplia gama de servicios de fisioterapia a
-                    domicilio en Cancún, diseñados para ayudarte a recuperar tu
-                    movilidad, aliviar el dolor y mejorar tu calidad de vida.
-                </p>
-            </div>
-            <ServicesCarousel />
-        </section>
 
-        <section class="py-24 bg-surface-container-low">
-            <div class="max-w-7xl mx-auto px-6">
-                <div
-                    class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16"
+        <!-- Estudios y certificaciones -->
+        <section class="section-y bg-surface-container-low">
+            <div class="container-page">
+                <h2 data-reveal class="text-center text-[32px]">
+                    Estudios y certificaciones
+                </h2>
+                <p
+                    class="mx-auto mt-4 max-w-160 text-center text-lg leading-relaxed text-on-surface-variant"
                 >
-                    <div class="max-w-xl">
-                        <h2
-                            class="text-4xl md:text-5xl font-black text-secondary mb-4"
-                        >
-                            Historias de Pacientes
-                        </h2>
-                        <p class="text-on-surface-variant text-lg">
-                            Experiencias reales de personas que recuperaron su
-                            calidad de vida gracias a nuestra terapia.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Testimonio 1 -->
-                    <div
-                        class="bg-white p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow relative"
-                    >
-                        <div class="flex gap-1 text-primary mb-6">
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                        </div>
-                        <p
-                            class="text-on-surface font-medium text-lg italic mb-8 leading-relaxed"
-                        >
-                            "Después de mi cirugía de rodilla, no estaba seguro
-                            de volver a correr. El equipo no solo me ayudó a
-                            caminar, me ayudó a completar mi primer maratón 12
-                            meses después."
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-surface-container overflow-hidden shrink-0"
-                            >
-                                <img
-                                    alt="James P"
-                                    class="w-full h-full object-cover"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp61rP9hoZcTlLlyDZBPKyUe0lZWnmX_kfa_Tlw1EQIX2kMfX6jWChMs9SUqm_2E1J-e4yQ47em0z8uHUr6poJAuW7CZmBaNR05AKHt_ZICDki13j-3XWq3gvMkZMjfmWLkSWsL7JzYmQwa0pmX8CVX5QysmboY7AEKWtOUZW2Q-52C7thzjZx9-bBZY1DJUE_81BcrnhOTsf7WGXmVRydWj4rpHVAsLjumIYVYVMfff34eJ5iLWJJvTrUBoHBjcWf7OJz4I2OWw4"
-                                />
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-secondary">
-                                    James Peterson
-                                </h5>
-                                <p
-                                    class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold"
-                                >
-                                    Atleta
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonio 2 -->
-                    <div
-                        class="bg-white p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow relative"
-                    >
-                        <div class="flex gap-1 text-primary mb-6">
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                        </div>
-                        <p
-                            class="text-on-surface font-medium text-lg italic mb-8 leading-relaxed"
-                        >
-                            "El dolor crónico de espalda afectaba mi trabajo y
-                            mi estado de ánimo. Las sesiones de quiropraxia han
-                            sido un cambio total. Me siento años más joven y con
-                            mucha más energía."
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-surface-container overflow-hidden shrink-0"
-                            >
-                                <img
-                                    alt="Sarah M"
-                                    class="w-full h-full object-cover"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoClxsFbq6pbjm4nYorJyhUN8kEq22IDy6Hi-d8utvKuwGStEkmdrTzLFbp_xpSE5bXYp_iOTp0ZcR1F-2xCx8cBLsSJkWOtQgz5kIYFr62nKDpuVNrdddx6_aJlSeJuBuwwddUFdGJEKH2wg1XQOD4lSQNVl3jTQrCaHohdSZLLJRahcvuPLJiG-GVihD9COPS6FbbMt31xAiJO2GCpUx-cKnBtXTvWtH3qxLi5E-aQT1HpKIklGK8ewdO5A5Jjlw1Qa1Mwx-tqE"
-                                />
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-secondary">
-                                    Sarah Mitchell
-                                </h5>
-                                <p
-                                    class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold"
-                                >
-                                    Desarrolladora de Software
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testimonio 3 -->
-                    <div
-                        class="bg-white p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow relative"
-                    >
-                        <div class="flex gap-1 text-primary mb-6">
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                            <img src="/Star.svg" alt="" class="w-7 h-7" />
-                        </div>
-                        <p
-                            class="text-on-surface font-medium text-lg italic mb-8 leading-relaxed"
-                        >
-                            "El masaje terapéutico aquí va mucho más allá de la
-                            relajación. Es verdaderamente clínico y ha ayudado
-                            significativamente con la movilidad de mi hombro y
-                            mi postura."
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-surface-container overflow-hidden shrink-0"
-                            >
-                                <img
-                                    alt="Robert K"
-                                    class="w-full h-full object-cover"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiHVhSMieRhDfAasgLBGEPW1M7b0p7Jpw1JOg-imaFcV0QPyjUKP4Bo9aj5C7nfSOwa_qQASlSre53LJ6lPkNZ_sg8McP3pBTl5YaIIdTp5MdIPBUDVZCT87ixLfcZw8AUFzqlRJ1pRaFr-cpgmQ8X40DgPtfuAURJ6yLrbBnf3zF-cJxuF7qeIqf94K-k3O5ELAumYgs0wQ6KWHulGE1RhmDPKB3M3zY7N12bFJJ-nGkrzQ0ZOI4j6fsa11h6bVi7rpObd-M-A4k"
-                                />
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-secondary">
-                                    Robert King
-                                </h5>
-                                <p
-                                    class="text-xs text-on-surface-variant uppercase tracking-widest font-semibold"
-                                >
-                                    Gerente de Proyectos
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="max-w-7xl mx-auto px-6 flex gap-7 pb-20">
-            <div class="w-1/3">
-                <h2>Preguntas Frecuentes</h2>
-                <p class="text-lg mb-5">
-                    Algunas preguntas frecuentes sobre nuestros servicios de
-                    fisioterapia a domicilio.
+                    Formación académica y educación continua orientada a ofrecer
+                    atención basada en evidencia y resultados funcionales.
                 </p>
-                <a
-                    href="#"
-                    class="bg-primary text-white text-lg px-8 py-4 rounded-lg font-bold hover:scale-105 transition-all duration-300 block w-fit"
-                >
-                    Agendar una Consulta
-                </a>
-            </div>
-            <div class="w-2/3" data-faq-list>
-                <article class="border-b border-gray-300">
-                    <button
-                        data-faq-trigger
-                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
-                        aria-expanded="false"
-                    >
-                        <h3 class="text-xl font-bold text-secondary">
-                            ¿Qué tipo de tratamientos ofrecen a domicilio?
-                        </h3>
-                        <span
-                            data-faq-icon
-                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
-                            >+</span
-                        >
-                    </button>
-                    <div data-faq-answer class="hidden overflow-hidden">
-                        <p
-                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
-                        >
-                            Ofrecemos una amplia gama de tratamientos,
-                            incluyendo terapia manual, ejercicios terapéuticos,
-                            quiropraxia, masajes terapéuticos y programas
-                            personalizados de rehabilitación para diversas
-                            condiciones musculoesqueléticas.
-                        </p>
-                    </div>
-                </article>
-                <article class="border-b border-gray-300">
-                    <button
-                        data-faq-trigger
-                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
-                        aria-expanded="false"
-                    >
-                        <h3 class="text-xl font-bold text-secondary">
-                            ¿Cómo se personalizan los tratamientos para cada
-                            paciente?
-                        </h3>
-                        <span
-                            data-faq-icon
-                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
-                            >+</span
-                        >
-                    </button>
-                    <div data-faq-answer class="hidden overflow-hidden">
-                        <p
-                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
-                        >
-                            Cada tratamiento comienza con una evaluación
-                            exhaustiva de tu condición, historial médico y
-                            objetivos de recuperación. A partir de ahí,
-                            diseñamos un plan de tratamiento personalizado que
-                            se adapta a tus necesidades específicas y se ajusta
-                            a medida que avanzas en tu proceso de recuperación.
-                        </p>
-                    </div>
-                </article>
-                <article class="border-b border-gray-300">
-                    <button
-                        data-faq-trigger
-                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
-                        aria-expanded="false"
-                    >
-                        <h3 class="text-xl font-bold text-secondary">
-                            ¿Qué áreas de Cancún cubren para fisioterapia a
-                            domicilio?
-                        </h3>
-                        <span
-                            data-faq-icon
-                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
-                            >+</span
-                        >
-                    </button>
-                    <div data-faq-answer class="hidden overflow-hidden">
-                        <p
-                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
-                        >
-                            Cubrimos toda el área metropolitana de Cancún,
-                            incluyendo las zonas hoteleras, supermanzanas y
-                            áreas residenciales. Nuestro objetivo es llevar la
-                            fisioterapia a tu puerta, sin importar dónde te
-                            encuentres en la ciudad.
-                        </p>
-                    </div>
-                </article>
-                <article class="border-b border-gray-300">
-                    <button
-                        data-faq-trigger
-                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
-                        aria-expanded="false"
-                    >
-                        <h3 class="text-xl font-bold text-secondary">
-                            ¿Cómo puedo agendar una consulta de fisioterapia a
-                            domicilio?
-                        </h3>
-                        <span
-                            data-faq-icon
-                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
-                            >+</span
-                        >
-                    </button>
-                    <div data-faq-answer class="hidden overflow-hidden">
-                        <p
-                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
-                        >
-                            Agendar una consulta es fácil. Puedes hacerlo a
-                            través de nuestro sitio web, llamándonos
-                            directamente o enviándonos un mensaje por WhatsApp.
-                            Nuestro equipo estará encantado de ayudarte a
-                            programar tu primera sesión y responder cualquier
-                            pregunta que puedas tener.
-                        </p>
-                    </div>
-                </article>
-                <article>
-                    <button
-                        data-faq-trigger
-                        class="w-full flex justify-between items-center gap-4 py-6 text-left cursor-pointer"
-                        aria-expanded="false"
-                    >
-                        <h3 class="text-xl font-bold text-secondary">
-                            ¿Qué medidas de seguridad e higiene siguen durante
-                            las sesiones a domicilio?
-                        </h3>
-                        <span
-                            data-faq-icon
-                            class="text-primary text-2xl font-light shrink-0 transition-transform duration-300"
-                            >+</span
-                        >
-                    </button>
-                    <div data-faq-answer class="hidden overflow-hidden">
-                        <p
-                            class="text-on-surface-variant text-lg leading-relaxed pb-6"
-                        >
-                            La seguridad de nuestros pacientes es nuestra máxima
-                            prioridad. Todos nuestros terapeutas siguen
-                            estrictos protocolos de higiene, que incluyen el uso
-                            de equipo de protección personal, desinfección de
-                            equipos y superficies antes y después de cada
-                            sesión, y la implementación de medidas para
-                            garantizar un entorno seguro durante tu tratamiento.
-                        </p>
-                    </div>
-                </article>
-            </div>
-        </section>
 
-        <script>
-            const triggers =
-                document.querySelectorAll<HTMLButtonElement>(
-                    "[data-faq-trigger]",
-                );
-
-            triggers.forEach((trigger) => {
-                trigger.addEventListener("click", () => {
-                    const isOpen =
-                        trigger.getAttribute("aria-expanded") === "true";
-
-                    // Close all
-                    triggers.forEach((t) => {
-                        t.setAttribute("aria-expanded", "false");
-                        const answer = t.nextElementSibling as HTMLElement;
-                        const icon = t.querySelector(
-                            "[data-faq-icon]",
-                        ) as HTMLElement;
-                        answer.classList.add("hidden");
-                        icon.textContent = "+";
-                        icon.style.transform = "rotate(0deg)";
-                    });
-
-                    // Open clicked if it was closed
-                    if (!isOpen) {
-                        trigger.setAttribute("aria-expanded", "true");
-                        const answer =
-                            trigger.nextElementSibling as HTMLElement;
-                        const icon = trigger.querySelector(
-                            "[data-faq-icon]",
-                        ) as HTMLElement;
-                        answer.classList.remove("hidden");
-                        icon.textContent = "×";
-                        icon.style.transform = "rotate(180deg)";
+                <div class="mt-14 grid gap-6 md:grid-cols-2">
+                    {
+                        studies.map((study) => (
+                            <article class="card p-7">
+                                <p class="mb-2 text-sm font-bold uppercase tracking-wide text-primary-container">
+                                    {study.year}
+                                </p>
+                                <h3 class="mb-3 text-xl!">{study.title}</h3>
+                                <p class="mb-3 font-semibold text-secondary">
+                                    {study.institution}
+                                </p>
+                                <p class="text-on-surface-variant">
+                                    {study.description}
+                                </p>
+                            </article>
+                        ))
                     }
-                });
-            });
-        </script>
+                </div>
+            </div>
+        </section>
     </main>
 
     <Footer />
 </BaseLayout>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!reduceMotion) {
+        // Los títulos de cada sección se revelan al entrar en pantalla,
+        // igual que en el homepage, para marcar la jerarquía de contenido
+        // conforme se hace scroll.
+        gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((heading) => {
+            gsap.from(heading, {
+                opacity: 0,
+                y: 24,
+                duration: 0.7,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: heading,
+                    start: "top 85%",
+                },
+            });
+        });
+    }
+</script>
